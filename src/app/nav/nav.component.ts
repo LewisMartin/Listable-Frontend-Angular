@@ -16,4 +16,8 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
 
+  toggleNav(){
+    this.isCollapsed = !this.isCollapsed;
+  }
+
 }

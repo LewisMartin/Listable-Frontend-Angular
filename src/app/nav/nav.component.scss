@@ -1,0 +1,29 @@
+.navbar-custom {
+    background-color: #ffffff;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: #28bb9e;
+}
+.navbar-custom .navbar-nav .nav-item {
+    margin:0px 12px;
+    font-size: 15px;
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: #9a9a9a;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color:#28bb9e;
+}
+.navbar-custom .navbar-toggler {
+    color: #28bb9e;
+    border: none;
+    font-size: 24px;
+}
+.navbar-custom .navbar-toggler:focus {
+    outline: none;
+}
