@@ -5,6 +5,8 @@ import { HomeComponent } from './home/home.component';
 import { ExploreComponent } from './explore/explore.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CollectionsComponent } from './collections/collections.component';
+import { AuthGuardService } from './auth-guard.service';
+import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
 
 const routes: Routes = [
   {
@@ -13,7 +15,8 @@ const routes: Routes = [
   },
   {
     path: 'explore',
-    component: ExploreComponent
+    component: ExploreComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'profile/:userId',
@@ -23,6 +26,10 @@ const routes: Routes = [
     path: 'collections/:userId',
     component: CollectionsComponent
   },
+  {
+    path: 'auth-callback',
+    component: AuthCallbackComponent
+  }
 ];
 
 @NgModule({

@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { CollectionsComponent } from './collections/collections.component';
 import { ExploreComponent } from './explore/explore.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
+import { AdalService } from 'adal-angular4';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { ProfileComponent } from './profile/profile.component';
     HomeComponent,
     CollectionsComponent,
     ExploreComponent,
-    ProfileComponent
+    ProfileComponent,
+    AuthCallbackComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,7 @@ import { ProfileComponent } from './profile/profile.component';
     NgbModule.forRoot(),
     AngularFontAwesomeModule
   ],
-  providers: [],
+  providers: [AdalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
