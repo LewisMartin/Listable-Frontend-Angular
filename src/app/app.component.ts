@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AdalService } from 'adal-angular4';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +11,10 @@ export class AppComponent {
   title = 'Listable Angular Client';
 
   private adalConfig = {
-    tenant: '[TENANT_GUID]',
-    clientId: '[CLIENTID_GUID]',
-    redirectUri: '[LOGIN_REDIRECT_URL]',
-    postLogoutRedirectUri: '[POST_LOGOUT_REDIRECT_URL]',
-    endpoints: {
-      '[HOME_URL_WEB_API]': '[CLIENTID_WEB_API_GUID]'
-    }
+    tenant: environment.tenant,
+    clientId: environment.clientId,
+    redirectUri: environment.redirectUri,
+    postLogoutRedirectUri: environment.postLogoutRedirectUri
   }
 
   constructor(private adal: AdalService) {
