@@ -13,8 +13,11 @@
       <li class="nav-item">
         <a routerLink="explore" class="nav-link"><fa name="search" class="icon-bump"></fa> Explore</a>
       </li>
-      <li class="nav-item dropdown">
-        <a routerLink="profile" class="nav-link"><fa name="user" class="icon-bump"></fa> Username</a>
+      <li class="nav-item dropdown" *ngIf="loggedIn == false">
+        <a class="nav-link" (click)="signIn();"><fa name="user" class="icon-bump"></fa> Sign In</a>
+      </li>
+      <li class="nav-item dropdown" *ngIf="loggedIn == true">
+        <a routerLink="profile" class="nav-link"><fa name="user" class="icon-bump"></fa> {{userName}}</a>
       </li>
     </ul>
   </div>

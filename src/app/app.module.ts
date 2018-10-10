@@ -12,6 +12,8 @@ import { ExploreComponent } from './explore/explore.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
 import { AdalService } from 'adal-angular4';
+import { AuthService } from './auth.service';
+import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { AdalService } from 'adal-angular4';
     NgbModule.forRoot(),
     AngularFontAwesomeModule
   ],
-  providers: [AdalService],
+  providers: [AuthGuardService, AuthService, AdalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

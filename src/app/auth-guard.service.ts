@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
-import { AdalService } from 'adal-angular4';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuardService implements CanActivate {
 
-  constructor(private adal: AdalService) { }
+  constructor(private _authService: AuthService) { }
 
   canActivate(): boolean {
     
-    if(this.adal.userInfo.authenticated){
+    if(this._authService.isLoggedIn()){
       return true;
     }
 
-    this.adal.login();
+    this._authService.startAuthentication();
 
     return false;
   }
