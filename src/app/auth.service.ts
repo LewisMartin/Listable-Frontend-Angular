@@ -15,7 +15,11 @@ export class AuthService {
     tenant: environment.tenant,
     clientId: environment.clientId,
     redirectUri: environment.redirectUri,
-    postLogoutRedirectUri: environment.postLogoutRedirectUri
+    postLogoutRedirectUri: environment.postLogoutRedirectUri,
+    endpoints: {
+      [environment.gatewayAPILocalBase]: environment.gatewayAPIResourceId,
+      [environment.gatewayAPIBase] : environment.gatewayAPIResourceId
+    }
   }
 
   constructor(private _adal: AdalService) {
@@ -28,6 +32,10 @@ export class AuthService {
 
   public getName():string {
     return this._adal.userInfo.userName;
+  }
+
+  public getToken():string {
+    return this._adal.userInfo.token;
   }
 
   public signout():void {

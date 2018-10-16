@@ -11,9 +11,11 @@ import { CollectionsComponent } from './collections/collections.component';
 import { ExploreComponent } from './explore/explore.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
-import { AdalService } from 'adal-angular4';
+
+import { AdalService, AdalInterceptor } from 'adal-angular4';
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,9 +31,10 @@ import { AuthGuardService } from './auth-guard.service';
     BrowserModule,
     AppRoutingModule,
     NgbModule.forRoot(),
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    HttpClientModule
   ],
-  providers: [AuthGuardService, AuthService, AdalService],
+  providers: [AuthGuardService, AuthService, AdalService, { provide: HTTP_INTERCEPTORS, useClass: AdalInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
