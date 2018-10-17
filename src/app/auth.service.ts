@@ -8,8 +8,8 @@ import { Subject } from 'rxjs';
 })
 export class AuthService {
 
-  userName:Subject<string> = new Subject();
-  loggedIn:Subject<boolean> = new Subject();
+  userName: Subject<string> = new Subject();
+  loggedIn: Subject<boolean> = new Subject();
 
   private _adalConfig = {
     tenant: environment.tenant,
@@ -34,6 +34,14 @@ export class AuthService {
     return this._adal.userInfo.userName;
   }
 
+  public getUniqueName():string {
+    return this._adal.userInfo.profile.unique_name;
+  }
+
+  public getUserId():string {
+    return this._adal.userInfo.profile.sub;
+  }
+
   public getToken():string {
     return this._adal.userInfo.token;
   }
@@ -48,6 +56,7 @@ export class AuthService {
 
   public completeAuthentication():void {
     this._adal.handleWindowCallback();
+
     this.loggedIn.next(this._adal.userInfo.authenticated);
     this.userName.next(this._adal.userInfo.userName);
   }
