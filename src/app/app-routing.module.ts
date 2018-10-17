@@ -9,23 +9,24 @@ import { AuthGuardService } from './auth-guard.service';
 import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'explore',
-    component: ExploreComponent,
-    canActivate: [AuthGuardService]
-  },
-  {
-    path: 'profile/:userId',
-    component: ProfileComponent
-  },
-  {
-    path: 'collections/:userId',
-    component: CollectionsComponent
-  },
+  { path: '', canActivate: [AuthGuardService], children: [
+    {
+      path: '',
+      component: HomeComponent,
+    },
+    {
+      path: 'explore',
+      component: ExploreComponent,
+    },
+    {
+      path: 'profile/:userId',
+      component: ProfileComponent,
+    },
+    {
+      path: 'collections/:userId',
+      component: CollectionsComponent,
+    }
+  ]},
   {
     path: 'auth-callback',
     component: AuthCallbackComponent
