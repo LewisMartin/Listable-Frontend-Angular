@@ -16,6 +16,7 @@ import { AdalService, AdalInterceptor } from 'adal-angular4';
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CollectionService } from './collection.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     AngularFontAwesomeModule,
     HttpClientModule
   ],
-  providers: [AuthGuardService, AuthService, AdalService, { provide: HTTP_INTERCEPTORS, useClass: AdalInterceptor, multi: true }],
+  providers: [
+    AuthGuardService, 
+    AuthService, 
+    AdalService, 
+    { provide: HTTP_INTERCEPTORS, useClass: AdalInterceptor, multi: true },
+    CollectionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

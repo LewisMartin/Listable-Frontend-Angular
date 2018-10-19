@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CollectionService } from '../collection.service';
 
 @Component({
   selector: 'app-collections',
@@ -9,13 +10,17 @@ import { ActivatedRoute } from '@angular/router';
 export class CollectionsComponent implements OnInit {
 
   userId: string;
+  collections: Array<any>;
 
-  constructor(private _route: ActivatedRoute) 
+  constructor(private _route: ActivatedRoute, private _collectionService: CollectionService) 
   {
     this.userId = this._route.snapshot.params.userId;
+    this._collectionService.getCollections(this.userId).subscribe((data: any) => this.collections = data);
   }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+    
   }
 
 }
