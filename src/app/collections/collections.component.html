@@ -1,9 +1,5 @@
-<p>
-  Collections for {{userId}}
-</p>
-
-<ul>
-  <li *ngFor="let collection of collections">
+<ul class="col-list">
+  <li *ngFor="let collection of collections" class="col-name">
       {{ collection.name }}
   </li>
 </ul>
