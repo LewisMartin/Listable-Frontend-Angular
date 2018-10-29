@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
-import { ExploreComponent } from './explore/explore.component';
-import { ProfileComponent } from './profile/profile.component';
-import { CollectionsComponent } from './collections/collections.component';
-import { AuthGuardService } from './auth-guard.service';
-import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
+import { HomeComponent } from './components/home/home.component';
+import { ExploreComponent } from './components/explore/explore.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { CollectionsComponent } from './components/collections/collections.component';
+import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
+
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   { path: '', canActivate: [AuthGuardService], children: [

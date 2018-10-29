@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CollectionService } from '../collection.service';
+import { CollectionService } from '../../services/collection.service';
 
 @Component({
   selector: 'app-collections',

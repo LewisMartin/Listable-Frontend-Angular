@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AdalService } from 'adal-angular4';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { Subject } from 'rxjs';
 
 @Injectable({

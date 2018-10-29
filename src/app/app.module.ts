@@ -5,18 +5,18 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavComponent } from './nav/nav.component';
-import { HomeComponent } from './home/home.component';
-import { CollectionsComponent } from './collections/collections.component';
-import { ExploreComponent } from './explore/explore.component';
-import { ProfileComponent } from './profile/profile.component';
-import { AuthCallbackComponent } from './auth-callback/auth-callback.component';
+import { NavComponent } from './components/nav/nav.component';
+import { HomeComponent } from './components/home/home.component';
+import { CollectionsComponent } from './components/collections/collections.component';
+import { ExploreComponent } from './components/explore/explore.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
 
 import { AdalService, AdalInterceptor } from 'adal-angular4';
-import { AuthService } from './auth.service';
-import { AuthGuardService } from './auth-guard.service';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { CollectionService } from './collection.service';
+import { CollectionService } from './services/collection.service';
 
 @NgModule({
   declarations: [
