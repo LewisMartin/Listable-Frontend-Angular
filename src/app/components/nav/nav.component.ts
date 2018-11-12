@@ -30,7 +30,6 @@ export class NavComponent implements OnInit {
     if(this._authService.isLoggedIn()){
       this.loggedIn = true;
       this.userName = this._authService.getName();
-      this.userId = this._authService.getUserId();
     }
   }
 

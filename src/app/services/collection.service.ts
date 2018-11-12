@@ -14,7 +14,11 @@ export class CollectionService {
     this._headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
   }
 
-  public getCollections(userId: string) {
+  public getCollectionsForUser(userId: string) {
     return this._http.get(this._accessPointUrl + '/getcollections?userId=' + userId, {headers: this._headers});
+  }
+
+  public getCollectionsForAuthenticatedUser() {
+    return this._http.get(this._accessPointUrl + '/getcollectionsforauthenticateduser', {headers: this._headers});
   }
 }

@@ -38,10 +38,6 @@ export class AuthService {
     return this._adal.userInfo.profile.unique_name;
   }
 
-  public getUserId():string {
-    return this._adal.userInfo.profile.sub;
-  }
-
   public getToken():string {
     return this._adal.userInfo.token;
   }

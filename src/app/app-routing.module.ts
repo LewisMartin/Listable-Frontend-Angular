@@ -24,7 +24,7 @@ const routes: Routes = [
       component: ProfileComponent,
     },
     {
-      path: 'collections/:userId',
+      path: 'collections',
       component: CollectionsComponent,
     }
   ]},
