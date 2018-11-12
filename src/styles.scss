@@ -2,6 +2,17 @@
 $fa-font-path: "../node_modules/font-awesome/fonts";
 @import "../node_modules/font-awesome/scss/font-awesome.scss";
 
+$color--theme-primary: #28bb9e;
+$color--theme-secondary: #1f967e;
+$color--white: #FFFFFF;
+$color--black: #000000;
+$color--light-grey: #E6E6E6;
+$color--grey: #CCCCCC;
+$color--dark-grey: #7B7B7B;
+$color--error-primary: #f8d7da;
+$color--error-secondary: #7f4f47;
+$color--error-outline: #f5c6cb;
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,7 +20,7 @@ $fa-font-path: "../node_modules/font-awesome/fonts";
 }
 
 body {
-    background-color:#28bb9e;
+    background-color: $color--theme-primary;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -19,4 +30,106 @@ body {
 
 a {
     cursor: pointer;
+}
+
+.form-controls-std .btn:hover:not([disabled]) {
+    background-color: $color--theme-primary;
+    color: $color--white;
+}
+
+input.ng-touched.ng-invalid {
+    border: 1px solid $color--error-secondary !important;
+}
+
+.form-controls-std {
+    background-color: $color--white;
+    padding: 15px;
+}
+
+.form-controls-std h3 {
+    margin-bottom: 20px;
+}
+
+.form-controls-std .footer-buttons {
+    margin-top: 30px;
+    position: relative;
+    width: 100%;
+}
+
+.footer-buttons>.btn-submit {
+    position: absolute;
+    right: 0px;
+}
+
+.form-controls-std .control {
+    display: block;
+    position: relative;
+    margin: 20px 0px;
+    font-size: 18px;
+}
+
+.form-controls-std .control-text>input {
+    width: 100%;
+}
+
+.control-text > input[type=text] {
+    border: 1px solid $color--dark-grey;
+    height: 30px;
+    padding: 8px;
+}
+
+.form-controls-std .control-check {
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+.form-controls-std input[type=checkbox] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.form-controls-std .checkbox-indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: $color--light-grey;
+}
+.checkbox-indicator>.tick {
+    position: absolute;
+    left: 8px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid $color--white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    display:none;
+}
+.form-controls-std .checkbox-indicator:hover {
+    background: $color--grey;
+}
+.form-controls-std input:checked ~ .checkbox-indicator {
+    background: $color--theme-primary;
+}
+.form-controls-std input:checked ~ .checkbox-indicator>.tick {
+    display: block;
+}
+.form-controls-std .input:disabled ~ .checkbox-indicator {
+    background: $color--light-grey;
+}
+
+.form-val-errors {
+    background-color: $color--error-primary;
+    color: $color--error-secondary;
+    -webkit-box-shadow:inset 0px 0px 0px 1px $color--error-outline;
+    -moz-box-shadow:inset 0px 0px 0px 1px $color--error-outline;
+    box-shadow:inset 0px 0px 0px 1px $color--error-outline;
+    border-radius: 5px;
+    margin: 15px 0px;
+}
+.form-val-errors>div {
+    padding: 8px 14px;
 }

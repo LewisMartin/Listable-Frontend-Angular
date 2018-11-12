@@ -1,5 +1,56 @@
-<ul class="col-list">
-  <li *ngFor="let collection of collections" class="col-name">
-      {{ collection.name }}
-  </li>
-</ul>
+
+<div *ngIf="collectionListVisible">
+    <ul class="col-list">
+      <li *ngFor="let collection of collections" class="col-name">
+          {{ collection.name }}
+      </li>
+    </ul>
+  
+    <button class="btn" (click)="showCreateForm()">New</button>
+    <button class="btn" (click)="showDeleteForm()">Delete</button>
+</div>
+
+<form #deleteForm="ngForm">
+  <div *ngIf="deleteFormVisible">
+    <button class="btn" (click)="hideDeleteForm()">Cancel</button>
+    <button class="btn" (click)="submitDelete(deleteForm)">Save</button>
+  </div>
+</form>
+
+<form #createForm="ngForm">
+  <div *ngIf="createFormVisible">
+    <div class="form-controls-std">
+      <h3>New Collection</h3>
+      <div class="form-group">
+        <label for="collectionName" class="control control-text">Collection Name
+          <input required maxlength="30" id="collectionName" type="text" name="collectionName" ngModel #collectionName="ngModel">
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="imageEnabled" class="control control-check">Enable Image Uploads
+          <input id="imageEnabled" type="checkbox" name="imageEnabled" [ngModel]="false" #imageEnabled="ngModel" [value]="false">
+          <div class="checkbox-indicator"><div class="tick"></div></div>
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="gridDisplay" class="control control-check">Grid Display
+          <input id="gridDisplay" type="checkbox" name="gridDisplay" [ngModel]="false" #gridDisplay="ngModel" [value]="false">
+          <div class="checkbox-indicator"><div class="tick"></div></div>
+        </label>
+      </div>
+      <div class="footer-buttons">
+        <button class="btn btn-cancel" (click)="hideCreateForm()">Cancel</button>
+        <button class="btn btn-submit" (click)="submitCreate(createForm)" [disabled]="!createForm.valid">Save</button>
+      </div>
+    </div>
+
+    <div class="form-val-errors" *ngIf="!createForm.valid">
+      <div *ngIf="collectionName.touched && collectionName.errors?.required">Collection name is required.</div>
+      <div *ngIf="collectionName.touched && collectionName.errors?.maxlength">Collection name cannot exceed 30 characers.</div>
+    </div>
+  </div>
+</form>
+
+<div class="alert alert-danger response-error" *ngIf="responseErrorVisible">
+  An unexpected server error occured while processing the request.
+</div>
