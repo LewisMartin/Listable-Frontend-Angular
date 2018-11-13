@@ -3,7 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { CollectionService } from '../../services/collection.service';
 import { CreateCollectionModel } from 'src/app/Models/CreateCollectionModel';
+
 import { AuthService } from 'src/app/services/auth.service';
+import { Collection } from 'src/app/Models/Collection';
 
 @Component({
   selector: 'app-collections',
@@ -13,7 +15,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class CollectionsComponent implements OnInit {
 
   userId: string;
-  collections: Array<any>;
+  collections: Array<Collection>;
   newCollection: CreateCollectionModel;
 
   collectionListVisible: boolean;
@@ -23,7 +25,7 @@ export class CollectionsComponent implements OnInit {
 
   constructor(private _route: ActivatedRoute, private _collectionService: CollectionService, private _authService: AuthService) 
   {
-    this._collectionService.getCollectionsForAuthenticatedUser().subscribe((data: any) => this.collections = data);
+    this._collectionService.getCollectionsForAuthenticatedUser().subscribe((data: Array<Collection>) => this.collections = data);
   }
 
   ngOnInit() {
