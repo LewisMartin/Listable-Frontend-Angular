@@ -1,4 +1,4 @@
-export class CollectionList
+export class CollectionListItem
 {
     id: string;
     Name: string;

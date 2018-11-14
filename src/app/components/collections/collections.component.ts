@@ -5,7 +5,7 @@ import { CollectionService } from '../../services/collection.service';
 import { CreateCollectionModel } from 'src/app/Models/CreateCollectionModel';
 
 import { AuthService } from 'src/app/services/auth.service';
-import { Collection } from 'src/app/Models/Collection';
+import { CollectionListItem } from 'src/app/Models/Collection';
 
 @Component({
   selector: 'app-collections',
@@ -15,7 +15,7 @@ import { Collection } from 'src/app/Models/Collection';
 export class CollectionsComponent implements OnInit {
 
   userId: string;
-  collections: Array<Collection>;
+  collections: Array<CollectionListItem>;
   newCollection: CreateCollectionModel;
 
   collectionListVisible: boolean;
@@ -25,7 +25,7 @@ export class CollectionsComponent implements OnInit {
 
   constructor(private _route: ActivatedRoute, private _collectionService: CollectionService, private _authService: AuthService) 
   {
-    this._collectionService.getCollectionsForAuthenticatedUser().subscribe((data: Array<Collection>) => this.collections = data);
+    this._collectionService.getCollectionsForAuthenticatedUser().subscribe((data: Array<CollectionListItem>) => this.collections = data);
   }
 
   ngOnInit() {
@@ -36,6 +36,7 @@ export class CollectionsComponent implements OnInit {
   }
 
   showCreateForm() {
+    console.log(this.collections);
     this.hideDeleteForm();
     this.hideListDisplay();
     this.createFormVisible = true;
