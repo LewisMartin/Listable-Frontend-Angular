@@ -12,8 +12,26 @@
 
 <form #deleteForm="ngForm">
   <div *ngIf="deleteFormVisible">
-    <button class="btn" (click)="hideDeleteForm()">Cancel</button>
-    <button class="btn" (click)="submitDelete(deleteForm)">Save</button>
+    <div class="form-controls-std">
+      <h3>Delete Collection</h3>
+      
+      <div class="form-group">
+        <label class="control control-text">Select collection:
+          <select required id="selectedCollection" name="selectedCollection" ngModel #selectedCollection="ngModel">
+            <option *ngFor="let collection of collections" [value]="collection.id">{{ collection.name }}</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="footer-buttons">
+          <button class="btn btn-cancel" (click)="hideDeleteForm()">Cancel</button>
+          <button class="btn btn-submit" (click)="submitDelete(deleteForm)" [disabled]="!deleteForm.valid">Delete</button>
+      </div>
+    </div>
+
+    <div class="form-val-errors" *ngIf="!deleteForm.valid">
+        <div *ngIf="selectedCollection.touched && selectedCollection.errors?.required">Collection name is required.</div>
+    </div>
   </div>
 </form>
 
@@ -21,23 +39,27 @@
   <div *ngIf="createFormVisible">
     <div class="form-controls-std">
       <h3>New Collection</h3>
+
       <div class="form-group">
         <label for="collectionName" class="control control-text">Collection Name
           <input required maxlength="30" id="collectionName" type="text" name="collectionName" ngModel #collectionName="ngModel">
         </label>
       </div>
+
       <div class="form-group">
         <label for="imageEnabled" class="control control-check">Enable Image Uploads
           <input id="imageEnabled" type="checkbox" name="imageEnabled" [ngModel]="false" #imageEnabled="ngModel" [value]="false">
           <div class="checkbox-indicator"><div class="tick"></div></div>
         </label>
       </div>
+
       <div class="form-group">
         <label for="gridDisplay" class="control control-check">Grid Display
           <input id="gridDisplay" type="checkbox" name="gridDisplay" [ngModel]="false" #gridDisplay="ngModel" [value]="false">
           <div class="checkbox-indicator"><div class="tick"></div></div>
         </label>
       </div>
+      
       <div class="footer-buttons">
         <button class="btn btn-cancel" (click)="hideCreateForm()">Cancel</button>
         <button class="btn btn-submit" (click)="submitCreate(createForm)" [disabled]="!createForm.valid">Save</button>

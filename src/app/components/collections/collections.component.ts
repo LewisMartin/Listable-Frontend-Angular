@@ -77,9 +77,6 @@ export class CollectionsComponent implements OnInit {
 
   submitCreate(createForm: NgForm) {
     this.hideResponseError();
-
-    console.log(createForm);
-
     this.newCollection = new CreateCollectionModel();
     this.newCollection.Name = createForm.value.collectionName;
     this.newCollection.ImageEnabled = createForm.value.imageEnabled;
@@ -94,5 +91,15 @@ export class CollectionsComponent implements OnInit {
     })
   }
 
-  submitDelete(deleteForm: NgForm) { }
+  submitDelete(deleteForm: NgForm) {
+    this.hideResponseError();
+
+    this._collectionService.deleteCollection(deleteForm.value.selectedCollection).subscribe(result => {
+      this.collections = this.collections.filter(coll => coll.id !== deleteForm.value.selectedCollection);
+      this.hideDeleteForm();
+    }, err => {
+      console.log("Error occured: " + err.message);
+      this.showResponseError();
+    })
+  }
 }

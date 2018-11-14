@@ -35,4 +35,15 @@ export class CollectionService {
       headers: this._headers
     })
   }
+
+  public deleteCollection(collectionId: string)
+  {
+    var body = {
+      SelectedCollectionId: collectionId
+    }
+
+    return this._http.post(this._accessPointUrl + '/deletecollection', body, {
+      headers: this._headers
+    })
+  }
 }
