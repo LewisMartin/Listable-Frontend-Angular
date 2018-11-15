@@ -27,7 +27,7 @@
 
       <div class="footer-buttons">
           <button class="btn btn-cancel" (click)="hideDeleteForm()">Cancel</button>
-          <button class="btn btn-submit" (click)="submitDelete(deleteForm)" [disabled]="!deleteForm.valid">Delete</button>
+          <button class="btn btn-submit" (click)="submitDelete(deleteForm)" [disabled]="!deleteForm.valid || disableSubmit">Delete</button>
       </div>
     </div>
 
@@ -64,7 +64,7 @@
       
       <div class="footer-buttons">
         <button class="btn btn-cancel" (click)="hideCreateForm()">Cancel</button>
-        <button class="btn btn-submit" (click)="submitCreate(createForm)" [disabled]="!createForm.valid">Save</button>
+        <button class="btn btn-submit" (click)="submitCreate(createForm)" [disabled]="!createForm.valid || disableSubmit">Save</button>
       </div>
     </div>
 

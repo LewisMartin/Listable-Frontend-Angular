@@ -24,6 +24,8 @@ export class CollectionsComponent implements OnInit {
   responseErrorVisible: boolean = false;
   spinnerVisible: boolean = true;
 
+  disableSubmit: boolean = false;
+
   constructor(private _route: ActivatedRoute, private _collectionService: CollectionService, private _authService: AuthService) 
   { }
 
@@ -35,15 +37,16 @@ export class CollectionsComponent implements OnInit {
   }
 
   showCreateForm() {
-    console.log(this.collections);
     this.hideDeleteForm();
     this.hideListDisplay();
+    this.disableSubmit = false;
     this.createFormVisible = true;
   }
 
   showDeleteForm() {
     this.hideCreateForm();
     this.hideListDisplay();
+    this.disableSubmit = false;
     this.deleteFormVisible = true;
   }
 
@@ -76,7 +79,9 @@ export class CollectionsComponent implements OnInit {
   }
 
   submitCreate(createForm: NgForm) {
+    this.disableSubmit = true;
     this.hideResponseError();
+
     this.newCollection = new CreateCollectionModel();
     this.newCollection.Name = createForm.value.collectionName;
     this.newCollection.ImageEnabled = createForm.value.imageEnabled;
@@ -88,10 +93,12 @@ export class CollectionsComponent implements OnInit {
     }, err => {
       console.log("Error occured: " + err.message);
       this.showResponseError();
-    })
+      this.disableSubmit = false;
+    });
   }
 
   submitDelete(deleteForm: NgForm) {
+    this.disableSubmit = true;
     this.hideResponseError();
 
     this._collectionService.deleteCollection(deleteForm.value.selectedCollection).subscribe(result => {
@@ -100,6 +107,7 @@ export class CollectionsComponent implements OnInit {
     }, err => {
       console.log("Error occured: " + err.message);
       this.showResponseError();
-    })
+      this.disableSubmit = false;
+    });
   }
 }
