@@ -18,21 +18,20 @@ export class CollectionsComponent implements OnInit {
   collections: Array<CollectionListItem>;
   newCollection: CreateCollectionModel;
 
-  collectionListVisible: boolean;
-  createFormVisible: boolean;
-  deleteFormVisible: boolean;
-  responseErrorVisible: boolean;
+  collectionListVisible: boolean = true;
+  createFormVisible: boolean = false;
+  deleteFormVisible: boolean = false;
+  responseErrorVisible: boolean = false;
+  spinnerVisible: boolean = true;
 
   constructor(private _route: ActivatedRoute, private _collectionService: CollectionService, private _authService: AuthService) 
-  {
-    this._collectionService.getCollectionsForAuthenticatedUser().subscribe((data: Array<CollectionListItem>) => this.collections = data);
-  }
+  { }
 
   ngOnInit() {
-    this.collectionListVisible = true;
-    this.createFormVisible = false;
-    this.deleteFormVisible = false;
-    this.responseErrorVisible = false;
+    this._collectionService.getCollectionsForAuthenticatedUser().subscribe((data: Array<CollectionListItem>) => { 
+      this.collections = data;
+      this.spinnerVisible = false;
+    });
   }
 
   showCreateForm() {
