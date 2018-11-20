@@ -14,6 +14,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { CollectionViewComponent } from './components/collection-view/collection-view.component';
+import { CollectionItemViewComponent } from './components/collection-item-view/collection-item-view.component';
 
 import { AdalService, AdalInterceptor } from 'adal-angular4';
 import { AuthService } from './services/auth.service';
@@ -31,7 +32,8 @@ import { CollectionService } from './services/collection.service';
     ProfileComponent,
     AuthCallbackComponent,
     LoadingSpinnerComponent,
-    CollectionViewComponent
+    CollectionViewComponent,
+    CollectionItemViewComponent
   ],
   imports: [
     BrowserModule,
