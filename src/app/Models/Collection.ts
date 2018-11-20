@@ -1,23 +1,20 @@
-export class CollectionListItem
+export class CollectionsListItem
 {
     id: string;
-    Name: string;
+    name: string;
 }
 
-export class Collection 
+export class CollectionView
 {
     id: string;
-    Owner: string;
-    Name: string;
-    ImageEnabled: boolean;
-    DisplayFormat: number;
-    CollectionItems: Array<CollectionItem>;
+    name: string;
+    gridDisplay: boolean;
+    collectionViewItems: Array<CollectionViewItem>;
 }
 
-export class CollectionItem
+export class CollectionViewItem
 {
-    Id: string;
-    Name: string;
-    Description: string;
-    ImageId: string;
+    id: string;
+    name: string;
+    thumbnailUri: string;
 }

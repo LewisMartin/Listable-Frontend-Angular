@@ -23,6 +23,10 @@ export class CollectionService {
     return this._http.get(this._accessPointUrl + '/getcollectionsforauthenticateduser', {headers: this._headers});
   }
 
+  public getCollection(id: string) {
+    return this._http.get(this._accessPointUrl + '/getcollection?id=' + id, {headers: this._headers});
+  }
+
   public createCollection(newCollection: CreateCollectionModel)
   {
     var body = {

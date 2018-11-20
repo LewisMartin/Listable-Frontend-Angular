@@ -4,8 +4,7 @@ import { NgForm } from '@angular/forms';
 import { CollectionService } from '../../services/collection.service';
 import { CreateCollectionModel } from 'src/app/Models/CreateCollectionModel';
 
-import { AuthService } from 'src/app/services/auth.service';
-import { CollectionListItem } from 'src/app/Models/Collection';
+import { CollectionsListItem } from 'src/app/Models/Collection';
 
 @Component({
   selector: 'app-collections',
@@ -15,7 +14,7 @@ import { CollectionListItem } from 'src/app/Models/Collection';
 export class CollectionsComponent implements OnInit {
 
   userId: string;
-  collections: Array<CollectionListItem>;
+  collectionList: Array<CollectionsListItem>;
   newCollection: CreateCollectionModel;
 
   collectionListVisible: boolean = true;
@@ -26,12 +25,12 @@ export class CollectionsComponent implements OnInit {
 
   disableSubmit: boolean = false;
 
-  constructor(private _route: ActivatedRoute, private _collectionService: CollectionService, private _authService: AuthService) 
+  constructor(private _route: ActivatedRoute, private _collectionService: CollectionService) 
   { }
 
   ngOnInit() {
-    this._collectionService.getCollectionsForAuthenticatedUser().subscribe((data: Array<CollectionListItem>) => { 
-      this.collections = data;
+    this._collectionService.getCollectionsForAuthenticatedUser().subscribe((data: Array<CollectionsListItem>) => { 
+      this.collectionList = data;
       this.spinnerVisible = false;
     });
   }
@@ -88,7 +87,7 @@ export class CollectionsComponent implements OnInit {
     this.newCollection.GridDisplay = createForm.value.gridDisplay;
 
     this._collectionService.createCollection(this.newCollection).subscribe((data: any) => {
-      this.collections.push(data);
+      this.collectionList.push(data);
       this.hideCreateForm();
     }, err => {
       console.log("Error occured: " + err.message);
@@ -102,7 +101,7 @@ export class CollectionsComponent implements OnInit {
     this.hideResponseError();
 
     this._collectionService.deleteCollection(deleteForm.value.selectedCollection).subscribe(result => {
-      this.collections = this.collections.filter(coll => coll.id !== deleteForm.value.selectedCollection);
+      this.collectionList = this.collectionList.filter(coll => coll.id !== deleteForm.value.selectedCollection);
       this.hideDeleteForm();
     }, err => {
       console.log("Error occured: " + err.message);

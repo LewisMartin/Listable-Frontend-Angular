@@ -3,9 +3,11 @@
 
 <div *ngIf="collectionListVisible">
     <ul class="col-list">
-      <li *ngFor="let collection of collections" class="col-name">
-          {{ collection.name }}
-      </li>
+      <a *ngFor="let collection of collectionList" [routerLink]="['/collection/', collection.id]">
+        <li class="col-name">
+            {{ collection.name }}
+        </li>
+      </a>
     </ul>
   
     <button class="btn" (click)="showCreateForm()">New</button>
@@ -20,7 +22,7 @@
       <div class="form-group">
         <label class="control control-text">Select collection:
           <select required id="selectedCollection" name="selectedCollection" ngModel #selectedCollection="ngModel">
-            <option *ngFor="let collection of collections" [value]="collection.id">{{ collection.name }}</option>
+            <option *ngFor="let collection of collectionList" [value]="collection.id">{{ collection.name }}</option>
           </select>
         </label>
       </div>

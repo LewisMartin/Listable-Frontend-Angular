@@ -17,6 +17,7 @@ $color--error-outline: #f5c6cb;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    outline: none;
 }
 
 body {
@@ -30,6 +31,22 @@ body {
 
 a {
     cursor: pointer;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    margin-bottom: 0px;
+}
+
+.std-link {
+    cursor: pointer;
+}
+.std-link:hover {
+    color: $color--theme-secondary;
 }
 
 .form-controls-std .btn:hover:not([disabled]) {

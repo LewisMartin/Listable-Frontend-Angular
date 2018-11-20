@@ -13,6 +13,7 @@ import { ExploreComponent } from './components/explore/explore.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { CollectionViewComponent } from './components/collection-view/collection-view.component';
 
 import { AdalService, AdalInterceptor } from 'adal-angular4';
 import { AuthService } from './services/auth.service';
@@ -29,7 +30,8 @@ import { CollectionService } from './services/collection.service';
     ExploreComponent,
     ProfileComponent,
     AuthCallbackComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    CollectionViewComponent
   ],
   imports: [
     BrowserModule,

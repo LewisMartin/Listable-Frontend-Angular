@@ -8,6 +8,7 @@ import { CollectionsComponent } from './components/collections/collections.compo
 import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
 
 import { AuthGuardService } from './services/auth-guard.service';
+import { CollectionViewComponent } from './components/collection-view/collection-view.component';
 
 const routes: Routes = [
   { path: '', canActivate: [AuthGuardService], children: [
@@ -26,6 +27,10 @@ const routes: Routes = [
     {
       path: 'collections',
       component: CollectionsComponent,
+    },
+    {
+      path: 'collection/:id',
+      component: CollectionViewComponent
     }
   ]},
   {
