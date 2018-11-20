@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-collection-item-view',
-  templateUrl: './collection-item-view.component.html',
-  styleUrls: ['./collection-item-view.component.scss']
+  selector: 'app-collection-item-edit',
+  templateUrl: './collection-item-edit.component.html',
+  styleUrls: ['./collection-item-edit.component.scss']
 })
-export class CollectionItemViewComponent implements OnInit {
+export class CollectionItemEditComponent implements OnInit {
 
   itemId: string;
 
