@@ -10,16 +10,9 @@ import { environment } from '../../../environments/environment';
 })
 export class ExploreComponent implements OnInit {
 
-  private _url = environment.gatewayAPILocalBase + '/api/values';
-  vals: Array<string> = [];
-
-  constructor(private _authService: AuthService, private _httpClient: HttpClient) { }
+  constructor() { }
 
   ngOnInit() {
-
-    this._httpClient.get(this._url).subscribe(values => {
-      this.vals = values as Array<string>;
-    });
   }
 
 }
