@@ -7,7 +7,7 @@
   <div class="coll-items-cont">
     <ul [ngClass]="{'coll-items-grid':collectionView?.gridDisplay, 'coll-items-list':!collectionView?.gridDisplay}">
       <li *ngFor="let item of collectionView?.collectionViewItems">
-        <div [routerLink]="['/collectionitem/', item.id]" class="std-link">
+        <div [routerLink]="['/collectionitem/', collectionView.id, item.id]" class="std-link">
           <div class="coll-grid-img" *ngIf="collectionView?.gridDisplay" [ngStyle]="{'background-image':'url(' + item.thumbnailUri + ')'}"></div>
           <div class="coll-item-name">
             {{ item.name }}
@@ -17,7 +17,7 @@
           <div class="coll-item-likes" ng-click="addLike(item.id)">
             0 likes
           </div>      
-          <div class="coll-item-edit std-link" [routerLink]="['/collectionitem/edit/', item.id]">
+          <div class="coll-item-edit std-link" [routerLink]="['/collectionitem/edit/', collectionView.id, item.id]">
             Edit
           </div>
         </div>

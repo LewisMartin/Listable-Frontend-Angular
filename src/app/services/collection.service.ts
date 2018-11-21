@@ -50,4 +50,8 @@ export class CollectionService {
       headers: this._headers
     })
   }
+
+  public getCollectionItem(collectionId: string, itemId: string) {
+    return this._http.get(this._accessPointUrl + '/getcollectionitem?collectionId=' + collectionId + '&itemId=' + itemId, {headers: this._headers});
+  }
 }

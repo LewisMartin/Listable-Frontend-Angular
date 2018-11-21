@@ -35,11 +35,11 @@ const routes: Routes = [
       component: CollectionViewComponent
     },
     {
-      path: 'collectionitem/:id',
+      path: 'collectionitem/:collectionId/:itemId',
       component: CollectionItemViewComponent
     },
     {
-      path: 'collectionitem/edit/:id',
+      path: 'collectionitem/edit/:collectionId/:itemId',
       component: CollectionItemEditComponent
     }
   ]},

@@ -18,3 +18,14 @@ export class CollectionViewItem
     name: string;
     thumbnailUri: string;
 }
+
+export class CollectionItemView
+{
+    collectionId: string;
+    collectionName: string;
+    id: string;
+    name: string;
+    description: string;
+    showImage: boolean;
+    imageUrl: string;
+}
