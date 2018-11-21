@@ -11,6 +11,7 @@ import { CollectionItemViewComponent } from './components/collection-item-view/c
 import { CollectionItemEditComponent } from './components/collection-item-edit/collection-item-edit.component';
 
 import { AuthGuardService } from './services/auth-guard.service';
+import { CollectionEditComponent } from './components/collection-edit/collection-edit.component';
 
 const routes: Routes = [
   { path: '', canActivate: [AuthGuardService], children: [
@@ -33,6 +34,10 @@ const routes: Routes = [
     {
       path: 'collection/:id',
       component: CollectionViewComponent
+    },
+    {
+      path: 'collection/edit/:id',
+      component: CollectionEditComponent
     },
     {
       path: 'collectionitem/:collectionId/:itemId',
