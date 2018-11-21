@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { CreateCollectionModel } from '../Models/CreateCollectionModel';
+import { CreateCollectionFormModel } from '../Models/CreateCollectionFormModel';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +27,7 @@ export class CollectionService {
     return this._http.get(this._accessPointUrl + '/getcollection?id=' + id, {headers: this._headers});
   }
 
-  public createCollection(newCollection: CreateCollectionModel)
+  public createCollection(newCollection: CreateCollectionFormModel)
   {
     var body = {
       Name: newCollection.Name,
@@ -35,7 +35,7 @@ export class CollectionService {
       GridDisplay: newCollection.GridDisplay
     }
 
-    return this._http.post<CreateCollectionModel>(this._accessPointUrl + '/createcollection', body, {
+    return this._http.post<CreateCollectionFormModel>(this._accessPointUrl + '/createcollection', body, {
       headers: this._headers
     })
   }

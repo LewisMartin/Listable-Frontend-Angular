@@ -1,4 +1,4 @@
-export class CreateCollectionModel
+export class CreateCollectionFormModel
 {
     Name: string;
     ImageEnabled: boolean;

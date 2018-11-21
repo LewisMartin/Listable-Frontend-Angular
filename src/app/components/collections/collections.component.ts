@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { CollectionService } from '../../services/collection.service';
-import { CreateCollectionModel } from 'src/app/Models/CreateCollectionModel';
+import { CreateCollectionFormModel } from 'src/app/Models/CreateCollectionFormModel';
 
 import { CollectionsListItem } from 'src/app/Models/Collection';
 
@@ -15,7 +15,7 @@ export class CollectionsComponent implements OnInit {
 
   userId: string;
   collectionList: Array<CollectionsListItem>;
-  newCollection: CreateCollectionModel;
+  newCollection: CreateCollectionFormModel;
 
   collectionListVisible: boolean = true;
   createFormVisible: boolean = false;
@@ -81,7 +81,7 @@ export class CollectionsComponent implements OnInit {
     this.disableSubmit = true;
     this.hideResponseError();
 
-    this.newCollection = new CreateCollectionModel();
+    this.newCollection = new CreateCollectionFormModel();
     this.newCollection.Name = createForm.value.collectionName;
     this.newCollection.ImageEnabled = createForm.value.imageEnabled;
     this.newCollection.GridDisplay = createForm.value.gridDisplay;
