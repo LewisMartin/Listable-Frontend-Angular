@@ -29,3 +29,11 @@ export class CollectionItemView
     showImage: boolean;
     imageUrl: string;
 }
+
+export class CollectionSettings
+{
+    id: string;
+    name: string;
+    imageEnabled: boolean;
+    gridDisplay: boolean;
+}

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { CreateCollectionFormModel } from '../Models/CreateCollectionFormModel';
+import { EditCollectionFormModel } from '../Models/EditCollectionFormModel';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +28,11 @@ export class CollectionService {
     return this._http.get(this._accessPointUrl + '/getcollection?id=' + id, {headers: this._headers});
   }
 
-  public createCollection(newCollection: CreateCollectionFormModel)
-  {
+  public getCollectionSettings(id: string) {
+    return this._http.get(this._accessPointUrl + '/getcollectionsettings?id=' + id, {headers: this._headers})
+  }
+
+  public createCollection(newCollection: CreateCollectionFormModel) {
     var body = {
       Name: newCollection.Name,
       ImageEnabled: newCollection.ImageEnabled,
@@ -37,18 +41,29 @@ export class CollectionService {
 
     return this._http.post<CreateCollectionFormModel>(this._accessPointUrl + '/createcollection', body, {
       headers: this._headers
-    })
+    });
   }
 
-  public deleteCollection(collectionId: string)
-  {
+  public editCollection(editedCollection: EditCollectionFormModel) {
+    var body = {
+      Id: editedCollection.Id,
+      Name: editedCollection.Name,
+      GridDisplay: editedCollection.GridDisplay
+    }
+
+    return this._http.post<EditCollectionFormModel>(this._accessPointUrl + '/editcollection', body, {
+      headers: this._headers
+    });
+  }
+
+  public deleteCollection(collectionId: string) {
     var body = {
       SelectedCollectionId: collectionId
     }
 
     return this._http.post(this._accessPointUrl + '/deletecollection', body, {
       headers: this._headers
-    })
+    });
   }
 
   public getCollectionItem(collectionId: string, itemId: string) {
