@@ -8,6 +8,7 @@ import { CollectionsComponent } from './components/collections/collections.compo
 import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
 import { CollectionViewComponent } from './components/collection-view/collection-view.component';
 import { CollectionItemViewComponent } from './components/collection-item-view/collection-item-view.component';
+import { CollectionItemCreateComponent } from './components/collection-item-create/collection-item-create.component';
 import { CollectionItemEditComponent } from './components/collection-item-edit/collection-item-edit.component';
 
 import { AuthGuardService } from './services/auth-guard.service';
@@ -32,20 +33,24 @@ const routes: Routes = [
       component: CollectionsComponent,
     },
     {
-      path: 'collection/:id',
-      component: CollectionViewComponent
-    },
-    {
       path: 'collection/edit/:id',
       component: CollectionEditComponent
     },
     {
-      path: 'collectionitem/:collectionId/:itemId',
-      component: CollectionItemViewComponent
+      path: 'collection/:id',
+      component: CollectionViewComponent
+    },
+    {
+      path: 'collectionitem/create/:collectionId',
+      component: CollectionItemCreateComponent
     },
     {
       path: 'collectionitem/edit/:collectionId/:itemId',
       component: CollectionItemEditComponent
+    },
+    {
+      path: 'collectionitem/:collectionId/:itemId',
+      component: CollectionItemViewComponent
     }
   ]},
   {

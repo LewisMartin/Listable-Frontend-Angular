@@ -16,6 +16,7 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
 import { CollectionViewComponent } from './components/collection-view/collection-view.component';
 import { CollectionEditComponent } from './components/collection-edit/collection-edit.component';
 import { CollectionItemViewComponent } from './components/collection-item-view/collection-item-view.component';
+import { CollectionItemCreateComponent } from './components/collection-item-create/collection-item-create.component';
 import { CollectionItemEditComponent } from './components/collection-item-edit/collection-item-edit.component';
 
 import { AdalService, AdalInterceptor } from 'adal-angular4';
@@ -36,6 +37,7 @@ import { CollectionService } from './services/collection.service';
     LoadingSpinnerComponent,
     CollectionViewComponent,
     CollectionItemViewComponent,
+    CollectionItemCreateComponent,
     CollectionItemEditComponent,
     CollectionEditComponent
   ],

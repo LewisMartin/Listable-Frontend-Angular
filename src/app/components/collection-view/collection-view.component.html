@@ -6,6 +6,7 @@
     <span [routerLink]="['/collection/edit/', collectionView?.id]">
       <fa name="edit" class="icon-bump"></fa>
     </span>
+    <button type="button" class="btn" [routerLink]="['/collectionitem/create/', collectionView?.id]">New Item</button>
   </h3>
   <div class="coll-items-cont">
     <ul [ngClass]="{'coll-items-grid':collectionView?.gridDisplay, 'coll-items-list':!collectionView?.gridDisplay}">
