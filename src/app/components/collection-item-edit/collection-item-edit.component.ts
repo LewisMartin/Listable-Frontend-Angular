@@ -8,11 +8,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CollectionItemEditComponent implements OnInit {
 
+  collectionId: string;
   itemId: string;
 
   constructor(private _route: ActivatedRoute, private _router: Router) {
     _route.params.subscribe(params => {
-      this.itemId = params['id'];
+      this.collectionId = params['collectionId'];
+      this.itemId = params['itemId'];
     });
   }
 
