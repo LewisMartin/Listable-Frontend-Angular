@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import { CreateCollectionFormModel } from '../Models/CreateCollectionFormModel';
 import { EditCollectionFormModel } from '../Models/EditCollectionFormModel';
 import { CreateCollectionItemFormModel } from '../Models/CreateCollectionItemFormModel';
+import { EditCollectionItemFormModel } from '../Models/EditCollectionItemFormModel';
 
 @Injectable({
   providedIn: 'root'
@@ -82,5 +83,19 @@ export class CollectionService {
     }
 
     return this._http.post(this._accessPointUrl + '/createcollectionitem', formData);
+  }
+
+  public editCollectionItem(editedCollectionItem: EditCollectionItemFormModel) {
+    var formData = new FormData();
+    formData.append("CollectionId", editedCollectionItem.CollectionId);
+    formData.append("Id", editedCollectionItem.Id);
+    formData.append("Name", editedCollectionItem.Name);
+    formData.append("Description", editedCollectionItem.Description);
+
+    if (editedCollectionItem.ImageFile.files && editedCollectionItem.ImageFile.files[0]) {
+      formData.append("ImageFile", editedCollectionItem.ImageFile.files[0]);
+    }
+
+    return this._http.post(this._accessPointUrl + '/editcollectionitem', formData);
   }
 }
