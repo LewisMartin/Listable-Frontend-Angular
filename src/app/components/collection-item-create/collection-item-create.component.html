@@ -1,3 +1,43 @@
-<p>
-  Create item for collection: {{ collectionId }}
-</p>
+
+<div>
+  <form #form="ngForm">
+    <div class="form-controls-std">
+      <h3>{{ collectionSettings?.name }} > New Item</h3>
+  
+      <input required name="collId" id="collId" type="hidden" [ngModel]="collectionId" #collId="ngModel">
+
+      <div class="form-group">
+        <label for="itemName" class="control control-text">Item Name
+          <input required maxlength="30" id="itemName" type="text" name="itemName" ngModel #itemName="ngModel">
+        </label>
+      </div>
+  
+      <div class="form-group" *ngIf="collectionSettings?.imageEnabled">
+        <label for="itemImg">
+          <input type="file" id="itemImg" name="itemImg" #itemImg>
+        </label>
+      </div>
+
+      <div class="form-group">
+          <label for="itemDesc" class="control control-text">Description
+            <textarea maxlength="300" id="itemDesc" type="text" name="itemDesc" ngModel #itemDesc="ngModel"></textarea>
+          </label>
+      </div>
+      
+      <div class="footer-buttons">
+        <button type="button" class="btn btn-cancel" (click)="cancel()">Cancel</button>
+        <button class="btn btn-submit" (click)="submit(form)" [disabled]="!form.valid || disableSubmit">Save</button>
+      </div>
+    </div>
+  
+    <div class="form-val-errors" *ngIf="!form.valid">
+      <div *ngIf="itemName.touched && itemName.errors?.required">Item name is required.</div>
+      <div *ngIf="itemName.touched && itemName.errors?.maxlength">Item name cannot exceed 30 characers.</div>
+      <div *ngIf="itemDesc.touched && itemDesc.errors?.maxlength">Description cannot exceed 300 characers.</div>
+    </div>
+  </form>
+  
+  <div class="alert alert-danger response-error" *ngIf="responseErrorVisible">
+    An unexpected server error occured while processing the request.
+  </div>
+</div>

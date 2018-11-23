@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { CreateCollectionFormModel } from '../Models/CreateCollectionFormModel';
 import { EditCollectionFormModel } from '../Models/EditCollectionFormModel';
+import { CreateCollectionItemFormModel } from '../Models/CreateCollectionItemFormModel';
 
 @Injectable({
   providedIn: 'root'
@@ -68,5 +69,18 @@ export class CollectionService {
 
   public getCollectionItem(collectionId: string, itemId: string) {
     return this._http.get(this._accessPointUrl + '/getcollectionitem?collectionId=' + collectionId + '&itemId=' + itemId, {headers: this._headers});
+  }
+
+  public createCollectionItem(newCollectionItem: CreateCollectionItemFormModel) {
+    var formData = new FormData();
+    formData.append("CollectionId", newCollectionItem.CollectionId);
+    formData.append("Name", newCollectionItem.Name);
+    formData.append("Description", newCollectionItem.Description);
+
+    if (newCollectionItem.ImageFile.files && newCollectionItem.ImageFile.files[0]) {
+      formData.append("ImageFile", newCollectionItem.ImageFile.files[0]);
+    }
+
+    return this._http.post(this._accessPointUrl + '/createcollectionitem', formData);
   }
 }
