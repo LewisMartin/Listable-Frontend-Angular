@@ -13,6 +13,7 @@ import { CollectionItemEditComponent } from './components/collection-item-edit/c
 
 import { AuthGuardService } from './services/auth-guard.service';
 import { CollectionEditComponent } from './components/collection-edit/collection-edit.component';
+import { CollectionItemDeleteComponent } from './components/collection-item-delete/collection-item-delete.component';
 
 const routes: Routes = [
   { path: '', canActivate: [AuthGuardService], children: [
@@ -43,6 +44,10 @@ const routes: Routes = [
     {
       path: 'collectionitem/create/:collectionId',
       component: CollectionItemCreateComponent
+    },
+    {
+      path: 'collectionitem/delete/:collectionId',
+      component: CollectionItemDeleteComponent
     },
     {
       path: 'collectionitem/edit/:collectionId/:itemId',

@@ -17,6 +17,7 @@ import { CollectionViewComponent } from './components/collection-view/collection
 import { CollectionEditComponent } from './components/collection-edit/collection-edit.component';
 import { CollectionItemViewComponent } from './components/collection-item-view/collection-item-view.component';
 import { CollectionItemCreateComponent } from './components/collection-item-create/collection-item-create.component';
+import { CollectionItemDeleteComponent } from './components/collection-item-delete/collection-item-delete.component';
 import { CollectionItemEditComponent } from './components/collection-item-edit/collection-item-edit.component';
 
 import { AdalService, AdalInterceptor } from 'adal-angular4';
@@ -38,6 +39,7 @@ import { CollectionService } from './services/collection.service';
     CollectionViewComponent,
     CollectionItemViewComponent,
     CollectionItemCreateComponent,
+    CollectionItemDeleteComponent,
     CollectionItemEditComponent,
     CollectionEditComponent
   ],
