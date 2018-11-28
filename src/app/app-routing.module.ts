@@ -46,12 +46,12 @@ const routes: Routes = [
       component: CollectionItemCreateComponent
     },
     {
-      path: 'collectionitem/delete/:collectionId',
-      component: CollectionItemDeleteComponent
-    },
-    {
       path: 'collectionitem/edit/:collectionId/:itemId',
       component: CollectionItemEditComponent
+    },
+    {
+      path: 'collectionitem/delete/:collectionId/:itemId',
+      component: CollectionItemDeleteComponent
     },
     {
       path: 'collectionitem/:collectionId/:itemId',

@@ -10,11 +10,13 @@ import { CollectionService } from 'src/app/services/collection.service';
 export class CollectionItemDeleteComponent implements OnInit {
 
   collectionId: string;
+  itemId: string;
 
   constructor(private _route: ActivatedRoute, private _router: Router, private _collectionService: CollectionService) 
   {
     _route.params.subscribe(params => {
       this.collectionId = params['collectionId'];
+      this.itemId = params['itemId'];
     });
   }
 
