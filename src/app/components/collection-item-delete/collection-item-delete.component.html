@@ -1,3 +1,16 @@
-<p>
-  Delete items from collection: {{ collectionId }}
-</p>
+<loading-spinner *ngIf="spinnerVisible"></loading-spinner>
+
+<div *ngIf="!spinnerVisible">
+  <h3>Delete Item: {{ collectionItemView.name }}</h3>
+
+  <div>
+    <div>
+        Are you sure that you want to delete the item {{ collectionItemView.name }} from the collection {{ collectionItemView.collectionName }}? This action cannot be undone.
+    </div>
+    <div>
+        <button type="button" [routerLink]="['/collectionitem/', collectionItemView?.collectionId, collectionItemView?.id]">No, Cancel</button>
+        <button type="button" (click)="confirmDelete()" [disabled]="disableSubmit">Yes, Delete Item</button>
+    </div>
+  </div>
+
+</div>

@@ -5,6 +5,7 @@ import { CreateCollectionFormModel } from '../Models/CreateCollectionFormModel';
 import { EditCollectionFormModel } from '../Models/EditCollectionFormModel';
 import { CreateCollectionItemFormModel } from '../Models/CreateCollectionItemFormModel';
 import { EditCollectionItemFormModel } from '../Models/EditCollectionItemFormModel';
+import { DeleteCollectionItemFormModel } from '../Models/DeleteCollectionItemFormModel';
 
 @Injectable({
   providedIn: 'root'
@@ -97,5 +98,11 @@ export class CollectionService {
     }
 
     return this._http.post(this._accessPointUrl + '/editcollectionitem', formData);
+  }
+
+  public deleteCollectionItem(deletedCollectionItem: DeleteCollectionItemFormModel) {
+    return this._http.post(this._accessPointUrl + '/deletecollectionitem', deletedCollectionItem, {
+      headers: this._headers
+    });
   }
 }
