@@ -1,18 +1,25 @@
 <loading-spinner *ngIf="spinnerVisible"></loading-spinner>
 
-<div class="coll-item-view" *ngIf="!spinnerVisible">
+<div class="coll-item-view modal-width" *ngIf="!spinnerVisible">
   <h3>
-    {{ collectionItemView?.collectionName }} > {{ collectionItemView?.name }}
+    {{ collectionItemView?.collectionName }} - {{ collectionItemView?.name }}
   </h3>
   
-  <div>
-    <div class="coll-item-img-cont" *ngIf="collectionItemView?.showImage">
+  <div class="coll-item-detail">
+    <div class="coll-item-img-cont" *ngIf="collectionItemView?.showImage && collectionItemView?.imageUrl != ''">
       <img class="coll-item-img" [src]="collectionItemView?.imageUrl"/>
     </div>
-    {{ collectionItemView?.description }}
+    <div class="coll-item-desc">
+      {{ collectionItemView?.description }}
+    </div>
+  </div>
+
+  <div class="footer-buttons">
+    <button type="button" class="btn" [routerLink]="['/collection/', collectionItemView?.collectionId]">Back</button>
+    <button type="button" class="btn btn-edit" [routerLink]="['/collectionitem/edit/', collectionItemView?.collectionId, collectionItemView?.id]">Edit</button>
+    <button type="button" class="btn btn-del" [routerLink]="['/collectionitem/delete/', collectionItemView?.collectionId, collectionItemView?.id]">Delete</button>
   </div>
 </div>
 
-<button type="button" [routerLink]="['/collectionitem/edit/', collectionItemView?.collectionId, collectionItemView?.id]">Edit</button>
-<button type="button" [routerLink]="['/collectionitem/delete/', collectionItemView?.collectionId, collectionItemView?.id]">Delete</button>
+
 

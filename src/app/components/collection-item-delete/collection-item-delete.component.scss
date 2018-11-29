@@ -1,0 +1,23 @@
+
+.coll-del-confirm {
+    background-color: #ffffff;
+    padding: 15px;
+}
+
+.coll-del-warn {
+    margin-top: 20px;
+}
+
+.coll-del-confirm .footer-buttons {
+    margin-top: 30px;
+    position: relative;
+}
+.coll-del-confirm .footer-buttons>.btn-item-del {
+    background-color:#de000d;
+    color: #ffffff;
+    position: absolute;
+    right: 0px;
+}
+.coll-del-confirm .footer-buttons>.btn-item-del:hover {
+    background-color:#be000d;
+}

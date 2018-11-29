@@ -42,6 +42,18 @@ ul {
     margin-bottom: 0px;
 }
 
+.modal-width 
+{
+    width:100%;
+    max-width: 600px;
+    margin: 0px auto;
+}
+
+.text-atn {
+    font-weight: bold;
+    color: $color--dark-grey;
+}
+
 .std-link {
     cursor: pointer;
 }
@@ -49,7 +61,7 @@ ul {
     color: $color--theme-secondary;
 }
 
-.form-controls-std .btn:hover:not([disabled]) {
+.btn:hover:not([disabled]) {
     background-color: $color--theme-primary;
     color: $color--white;
 }
@@ -73,7 +85,7 @@ input.ng-touched.ng-invalid {
     width: 100%;
 }
 
-.footer-buttons>.btn-submit {
+.form-controls-std .footer-buttons>.btn-submit {
     position: absolute;
     right: 0px;
 }
@@ -92,6 +104,14 @@ input.ng-touched.ng-invalid {
 .control-text > input[type=text] {
     border: 1px solid $color--dark-grey;
     height: 30px;
+    padding: 8px;
+}
+
+.control-text > textarea {
+    border: 1px solid $color--dark-grey;
+    width: 100%;
+    min-height:200px;
+    max-height: 500px;
     padding: 8px;
 }
 

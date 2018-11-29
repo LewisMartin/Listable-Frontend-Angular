@@ -1,9 +1,9 @@
 <loading-spinner *ngIf="spinnerVisible"></loading-spinner>
 
-<div *ngIf="!spinnerVisible">
+<div *ngIf="!spinnerVisible" class="modal-width">
   <form #form="ngForm">
     <div class="form-controls-std">
-      <h3>{{ collectionSettings?.name }} > Edit Item: {{ collectionItem?.name }}</h3>
+      <h3>{{ collectionSettings?.name }} - Edit Item: {{ collectionItem?.name }}</h3>
 
       <div class="form-group">
         <label for="itemName" class="control control-text">Item Name
@@ -12,7 +12,7 @@
       </div>
   
       <div class="form-group" *ngIf="collectionSettings?.imageEnabled">
-        <label for="itemImg">
+        <label for="itemImg" class="control control-text">Image
           <input type="file" id="itemImg" name="itemImg" #itemImg>
         </label>
       </div>

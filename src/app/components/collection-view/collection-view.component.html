@@ -4,9 +4,8 @@
   <h3>
     {{collectionView?.name}} 
     <span [routerLink]="['/collection/edit/', collectionView?.id]">
-      <fa name="edit" class="icon-bump"></fa>
+      <fa name="edit" class="coll-title-icon"></fa>
     </span>
-    <button type="button" class="btn" [routerLink]="['/collectionitem/create/', collectionView?.id]">New Item</button>
   </h3>
   <div class="coll-items-cont">
     <ul [ngClass]="{'coll-items-grid':collectionView?.gridDisplay, 'coll-items-list':!collectionView?.gridDisplay}">
@@ -27,5 +26,9 @@
         </div>
       </li>
     </ul>
+  </div>
+  <div class="footer-buttons">
+      <button type="button" class="btn" [routerLink]="['/collections/']">Back</button>
+      <button type="button" class="btn btn-new-item" [routerLink]="['/collectionitem/create/', collectionView?.id]">New Item</button>
   </div>
 </div>

@@ -1,8 +1,8 @@
 
-<div>
+<div class="modal-width">
   <form #form="ngForm">
     <div class="form-controls-std">
-      <h3>{{ collectionSettings?.name }} > New Item</h3>
+      <h3>{{ collectionSettings?.name }} - New Item</h3>
   
       <input required name="collId" id="collId" type="hidden" [ngModel]="collectionId" #collId="ngModel">
 
@@ -13,7 +13,7 @@
       </div>
   
       <div class="form-group" *ngIf="collectionSettings?.imageEnabled">
-        <label for="itemImg">
+        <label for="itemImg" class="control control-text">Image
           <input type="file" id="itemImg" name="itemImg" #itemImg>
         </label>
       </div>

@@ -1,15 +1,37 @@
-
 .coll-item-view {
-    width: 100%;
     background-color: #ffffff;
+    padding: 15px;
+}
+
+.coll-item-detail {
+    padding: 12px;
 }
 
 .coll-item-img-cont {
     width: 100%;
-    padding: 12px;
 }
 .coll-item-img {
     width: 100%;
     height: auto;
     background-size: cover;
+}
+
+.coll-item-desc {
+    margin-top: 20px;
+}
+
+.coll-item-view .footer-buttons {
+    margin-top: 30px;
+    position: relative;
+    width: 100%;
+}
+
+.coll-item-view .footer-buttons>.btn-del {
+    position: absolute;
+    right: 0px;
+}
+
+.coll-item-view .footer-buttons>.btn-edit {
+    position: absolute;
+    right: 90px;
 }

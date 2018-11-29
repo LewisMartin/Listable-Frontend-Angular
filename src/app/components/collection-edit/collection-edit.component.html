@@ -1,9 +1,9 @@
 <loading-spinner *ngIf="spinnerVisible"></loading-spinner>
 
-<div *ngIf="!spinnerVisible">
+<div *ngIf="!spinnerVisible" class="modal-width">
   <form #form="ngForm">
     <div class="form-controls-std">
-      <h3>Edit Collection</h3>
+      <h3>Edit Collection - {{ collectionSettings?.name }}</h3>
   
       <input required name="collectionId" id="collectionId" type="hidden" [ngModel]="collectionSettings?.id" #collectionId="ngModel">
 
