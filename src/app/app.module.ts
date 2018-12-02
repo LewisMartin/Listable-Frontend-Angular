@@ -13,6 +13,8 @@ import { ExploreComponent } from './components/explore/explore.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { CollectionCreateComponent } from './components/collection-create/collection-create.component';
+import { CollectionDeleteComponent } from './components/collection-delete/collection-delete.component';
 import { CollectionViewComponent } from './components/collection-view/collection-view.component';
 import { CollectionEditComponent } from './components/collection-edit/collection-edit.component';
 import { CollectionItemViewComponent } from './components/collection-item-view/collection-item-view.component';
@@ -36,12 +38,14 @@ import { CollectionService } from './services/collection.service';
     ProfileComponent,
     AuthCallbackComponent,
     LoadingSpinnerComponent,
+    CollectionCreateComponent,
+    CollectionEditComponent,
+    CollectionDeleteComponent,
     CollectionViewComponent,
     CollectionItemViewComponent,
     CollectionItemCreateComponent,
     CollectionItemDeleteComponent,
-    CollectionItemEditComponent,
-    CollectionEditComponent
+    CollectionItemEditComponent
   ],
   imports: [
     BrowserModule,

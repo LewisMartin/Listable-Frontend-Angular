@@ -10,10 +10,12 @@ import { CollectionViewComponent } from './components/collection-view/collection
 import { CollectionItemViewComponent } from './components/collection-item-view/collection-item-view.component';
 import { CollectionItemCreateComponent } from './components/collection-item-create/collection-item-create.component';
 import { CollectionItemEditComponent } from './components/collection-item-edit/collection-item-edit.component';
+import { CollectionItemDeleteComponent } from './components/collection-item-delete/collection-item-delete.component';
+import { CollectionCreateComponent } from './components/collection-create/collection-create.component';
+import { CollectionDeleteComponent } from './components/collection-delete/collection-delete.component';
+import { CollectionEditComponent } from './components/collection-edit/collection-edit.component';
 
 import { AuthGuardService } from './services/auth-guard.service';
-import { CollectionEditComponent } from './components/collection-edit/collection-edit.component';
-import { CollectionItemDeleteComponent } from './components/collection-item-delete/collection-item-delete.component';
 
 const routes: Routes = [
   { path: '', canActivate: [AuthGuardService], children: [
@@ -32,6 +34,14 @@ const routes: Routes = [
     {
       path: 'collections',
       component: CollectionsComponent,
+    },
+    {
+      path: 'collection/create',
+      component: CollectionCreateComponent
+    },
+    {
+      path: 'collection/delete',
+      component: CollectionDeleteComponent
     },
     {
       path: 'collection/edit/:id',

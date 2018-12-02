@@ -1,0 +1,30 @@
+<loading-spinner *ngIf="spinnerVisible"></loading-spinner>
+
+<form #form="ngForm">
+  <div>
+    <div class="form-controls-std">
+      <h3>Delete Collection</h3>
+      
+      <div class="form-group">
+        <label class="control control-text">Select collection:
+          <select required id="selectedCollection" name="selectedCollection" ngModel #selectedCollection="ngModel">
+            <option *ngFor="let collection of collectionList" [value]="collection.id">{{ collection.name }}</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="footer-buttons">
+          <button class="btn btn-cancel" [routerLink]="['/collections/']">Cancel</button>
+          <button class="btn btn-submit" (click)="submitDelete(form)" [disabled]="!deleteForm.valid || disableSubmit">Delete</button>
+      </div>
+    </div>
+
+    <div class="form-val-errors" *ngIf="!deleteForm.valid">
+        <div *ngIf="selectedCollection.touched && selectedCollection.errors?.required">Collection name is required.</div>
+    </div>
+  </div>
+</form>
+
+<div class="alert alert-danger response-error" *ngIf="responseErrorVisible">
+  An unexpected server error occured while processing the request.
+</div>

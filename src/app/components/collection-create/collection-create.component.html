@@ -1,0 +1,43 @@
+<loading-spinner *ngIf="spinnerVisible"></loading-spinner>
+
+<form form="ngForm">
+  <div>
+    <div class="form-controls-std">
+      <h3>New Collection</h3>
+
+      <div class="form-group">
+        <label for="collectionName" class="control control-text">Collection Name
+          <input required maxlength="30" id="collectionName" type="text" name="collectionName" ngModel #collectionName="ngModel">
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label for="imageEnabled" class="control control-check">Enable Image Uploads
+          <input id="imageEnabled" type="checkbox" name="imageEnabled" [ngModel]="false" #imageEnabled="ngModel" [value]="false">
+          <div class="checkbox-indicator"><div class="tick"></div></div>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label for="gridDisplay" class="control control-check">Grid Display
+          <input id="gridDisplay" type="checkbox" name="gridDisplay" [ngModel]="false" #gridDisplay="ngModel" [value]="false">
+          <div class="checkbox-indicator"><div class="tick"></div></div>
+        </label>
+      </div>
+      
+      <div class="footer-buttons">
+        <button class="btn btn-cancel" [routerLink]="['/collections/']">Cancel</button>
+        <button class="btn btn-submit" (click)="submitCreate(form)" [disabled]="!createForm.valid || disableSubmit">Save</button>
+      </div>
+    </div>
+
+    <div class="form-val-errors" *ngIf="!createForm.valid">
+      <div *ngIf="collectionName.touched && collectionName.errors?.required">Collection name is required.</div>
+      <div *ngIf="collectionName.touched && collectionName.errors?.maxlength">Collection name cannot exceed 30 characers.</div>
+    </div>
+  </div>
+</form>
+
+<div class="alert alert-danger response-error" *ngIf="responseErrorVisible">
+  An unexpected server error occured while processing the request.
+</div>
