@@ -23,6 +23,7 @@ export class CollectionDeleteComponent implements OnInit {
     this._collectionService.getCollectionsForAuthenticatedUser().subscribe((data: Array<CollectionsListItem>) => { 
       this.collectionList = data;
       this.spinnerVisible = false;
+      console.log(this.collectionList);
     });
   }
 

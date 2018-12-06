@@ -12,7 +12,6 @@ import { CollectionService } from 'src/app/services/collection.service';
 export class CollectionCreateComponent implements OnInit {
 
   responseErrorVisible: boolean = false;
-  spinnerVisible: boolean = true;
   disableSubmit: boolean = false;
 
   constructor(private _route: ActivatedRoute, private _router: Router, private _collectionService: CollectionService) { }

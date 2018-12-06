@@ -1,6 +1,4 @@
-<loading-spinner *ngIf="spinnerVisible"></loading-spinner>
-
-<form form="ngForm">
+<form #form="ngForm">
   <div>
     <div class="form-controls-std">
       <h3>New Collection</h3>
@@ -27,11 +25,11 @@
       
       <div class="footer-buttons">
         <button class="btn btn-cancel" [routerLink]="['/collections/']">Cancel</button>
-        <button class="btn btn-submit" (click)="submitCreate(form)" [disabled]="!createForm.valid || disableSubmit">Save</button>
+        <button class="btn btn-submit" (click)="submitCreate(form)" [disabled]="!form.valid || disableSubmit">Save</button>
       </div>
     </div>
 
-    <div class="form-val-errors" *ngIf="!createForm.valid">
+    <div class="form-val-errors" *ngIf="!form.valid">
       <div *ngIf="collectionName.touched && collectionName.errors?.required">Collection name is required.</div>
       <div *ngIf="collectionName.touched && collectionName.errors?.maxlength">Collection name cannot exceed 30 characers.</div>
     </div>

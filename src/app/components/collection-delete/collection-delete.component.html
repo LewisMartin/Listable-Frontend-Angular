@@ -1,6 +1,6 @@
 <loading-spinner *ngIf="spinnerVisible"></loading-spinner>
 
-<form #form="ngForm">
+<form #form="ngForm" *ngIf="!spinnerVisible">
   <div>
     <div class="form-controls-std">
       <h3>Delete Collection</h3>
@@ -15,12 +15,12 @@
 
       <div class="footer-buttons">
           <button class="btn btn-cancel" [routerLink]="['/collections/']">Cancel</button>
-          <button class="btn btn-submit" (click)="submitDelete(form)" [disabled]="!deleteForm.valid || disableSubmit">Delete</button>
+          <button class="btn btn-submit" (click)="submitDelete(form)" [disabled]="!form.valid || disableSubmit">Delete</button>
       </div>
     </div>
 
-    <div class="form-val-errors" *ngIf="!deleteForm.valid">
-        <div *ngIf="selectedCollection.touched && selectedCollection.errors?.required">Collection name is required.</div>
+    <div class="form-val-errors" *ngIf="!form.valid">
+        <div *ngIf="selectedCollection.touched && selectedCollection.errors?.required">Choose a collecton to delete.</div>
     </div>
   </div>
 </form>
