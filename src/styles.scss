@@ -54,6 +54,11 @@ ul {
     color: $color--dark-grey;
 }
 
+.text-disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
 .std-link {
     cursor: pointer;
 }
@@ -124,6 +129,11 @@ input.ng-touched.ng-invalid {
     position: absolute;
     z-index: -1;
     opacity: 0;
+}
+.form-controls-std input[type=checkbox][disabled] ~ .checkbox-indicator,
+.form-controls-std input[type=checkbox][disabled] ~ .checkbox-indicator:hover,
+.form-controls-std input[type=checkbox][disabled] label[for=gridDisplay], {
+    background-color: $color--light-grey;
 }
 
 .form-controls-std .checkbox-indicator {

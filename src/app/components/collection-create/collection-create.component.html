@@ -11,14 +11,14 @@
 
       <div class="form-group">
         <label for="imageEnabled" class="control control-check">Enable Image Uploads
-          <input id="imageEnabled" type="checkbox" name="imageEnabled" [ngModel]="false" #imageEnabled="ngModel" [value]="false">
+          <input id="imageEnabled" type="checkbox" name="imageEnabled" [ngModel]="false" #imageEnabled="ngModel" [value]="false" (change)="imageEnabledTrigger()">
           <div class="checkbox-indicator"><div class="tick"></div></div>
         </label>
       </div>
 
       <div class="form-group">
-        <label for="gridDisplay" class="control control-check">Grid Display
-          <input id="gridDisplay" type="checkbox" name="gridDisplay" [ngModel]="false" #gridDisplay="ngModel" [value]="false">
+        <label for="gridDisplay" class="control control-check" [ngClass]="{'text-disabled':disableGridCheckbox}">Grid Display
+          <input id="gridDisplay" type="checkbox" name="gridDisplay" [ngModel]="false" #gridDisplay="ngModel" [value]="false" [disabled]="disableGridCheckbox">
           <div class="checkbox-indicator"><div class="tick"></div></div>
         </label>
       </div>

@@ -12,6 +12,7 @@ import { CollectionService } from 'src/app/services/collection.service';
 export class CollectionCreateComponent implements OnInit {
 
   responseErrorVisible: boolean = false;
+  disableGridCheckbox: boolean = true;
   disableSubmit: boolean = false;
 
   constructor(private _route: ActivatedRoute, private _router: Router, private _collectionService: CollectionService) { }
@@ -42,5 +43,9 @@ export class CollectionCreateComponent implements OnInit {
 
   hideResponseError() {
     this.responseErrorVisible = false;
+  }
+
+  imageEnabledTrigger() {
+    this.disableGridCheckbox = !this.disableGridCheckbox;
   }
 }
