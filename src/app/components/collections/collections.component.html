@@ -1,15 +1,22 @@
 
 <loading-spinner *ngIf="spinnerVisible"></loading-spinner>
 
-<div *ngIf="collectionListVisible">
+<div class="coll-view" *ngIf="collectionListVisible">
+  <h3>
+    My Collections
+  </h3>
+  <div class="coll-list-cont">
     <ul class="col-list">
-      <a *ngFor="let collection of collectionList" [routerLink]="['/collection/', collection.id]">
-        <li class="col-name">
-            {{ collection.name }}
-        </li>
-      </a>
+        <a *ngFor="let collection of collectionList" [routerLink]="['/collection/', collection.id]">
+          <li class="col-name">
+              {{ collection.name }}
+          </li>
+        </a>
     </ul>
-  
-    <button class="btn" [routerLink]="['/collection/create']">New</button>
-    <button class="btn" [routerLink]="['/collection/delete']">Delete</button>
+  </div>
+
+  <div class="footer-buttons">
+      <button type="button" class="btn" [routerLink]="['/collection/create']">New</button>
+      <button type="button" class="btn" [routerLink]="['/collection/delete']">Delete</button>
+  </div>
 </div>
