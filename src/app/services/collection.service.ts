@@ -13,7 +13,7 @@ import { DeleteCollectionItemFormModel } from '../Models/DeleteCollectionItemFor
 export class CollectionService {
 
   private _headers: HttpHeaders;
-  private _accessPointUrl: string = environment.gatewayAPILocalBase + '/api/collection';
+  private _accessPointUrl: string = environment.gatewayAPIBase + '/api/collection';
 
   constructor(private _http: HttpClient) {
     this._headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});

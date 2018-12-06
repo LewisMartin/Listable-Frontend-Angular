@@ -17,8 +17,7 @@ export class AuthService {
     redirectUri: environment.redirectUri,
     postLogoutRedirectUri: environment.postLogoutRedirectUri,
     endpoints: {
-      [environment.gatewayAPILocalBase]: environment.gatewayAPIResourceId,
-      [environment.gatewayAPIBase] : environment.gatewayAPIResourceId
+      [environment.gatewayAPIBase]: environment.gatewayAPIResourceId
     }
   }
 
