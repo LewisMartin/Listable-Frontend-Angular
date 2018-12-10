@@ -33,6 +33,7 @@
 }
 
 .coll-items-list li {
+    position: relative;
     overflow: hidden;
     height: 45px;
     background-color: #ffffff;
@@ -42,12 +43,14 @@
 .coll-items-list .coll-item-name {
     height: 45px;
     line-height: 45px;
-    float: left;
     padding: 0px 12px;
+    width: 60%;
 }
 
 .coll-items-list .coll-item-opts {
-    float: right;
+    position: absolute;
+    top: 0px;
+    right: 0px;
     height: 45px;
     line-height: 45px;
     font-size: 10px;
@@ -121,4 +124,34 @@
 .coll-view .footer-buttons>.btn-new-item {
     position: absolute;
     right: 14px;
+}
+
+@media (max-width:650px) and (min-width:580px) {
+    .coll-items-grid li {
+        width: 145px;
+    }
+}
+
+@media (max-width:480px) and (min-width:460px) {
+    .coll-items-grid li {
+        width: 150px;
+    }
+}
+
+@media (max-width:460px) and (min-width:430px) {
+    .coll-items-grid li  {
+        width: 140px;
+    }
+}
+
+@media (max-width:430px) and (min-width:400px) {
+    .coll-items-grid li  {
+        width: 135px;
+    }
+}
+
+@media (max-width:400px) and (min-width:0px) {
+    .coll-items-grid li  {
+        width: 130px;
+    }
 }

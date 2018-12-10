@@ -33,11 +33,15 @@ export class NavComponent implements OnInit {
     }
   }
 
-  toggleNav(){
+  toggleNav() {
     this.isCollapsed = !this.isCollapsed;
   }
 
-  signIn(){
+  signIn() {
     this._authService.startAuthentication();
+  }
+
+  collapse() {
+    this.isCollapsed = true;
   }
 }

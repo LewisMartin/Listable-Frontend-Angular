@@ -8,6 +8,7 @@ $color--white: #FFFFFF;
 $color--black: #000000;
 $color--light-grey: #E6E6E6;
 $color--grey: #CCCCCC;
+$color--mid-grey: rgb(150, 150, 150);
 $color--dark-grey: #7B7B7B;
 $color--error-primary: #f8d7da;
 $color--error-secondary: #7f4f47;
@@ -107,13 +108,12 @@ input.ng-touched.ng-invalid {
 }
 
 .control-text > input[type=text] {
-    border: 1px solid $color--dark-grey;
-    height: 30px;
-    padding: 8px;
+    border: 1px solid $color--mid-grey;
+    padding: 6px 8px;
 }
 
 .control-text > textarea {
-    border: 1px solid $color--dark-grey;
+    border: 1px solid $color--mid-grey;
     width: 100%;
     min-height:200px;
     max-height: 500px;
