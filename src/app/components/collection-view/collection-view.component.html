@@ -9,7 +9,7 @@
   </h3>
   <div class="coll-items-cont">
     <ul [ngClass]="{'coll-items-grid':collectionView?.gridDisplay, 'coll-items-list':!collectionView?.gridDisplay}">
-      <li *ngFor="let item of collectionView?.collectionViewItems">
+      <li *ngFor="let item of collectionView?.collectionViewItems | paginate: { itemsPerPage: 20, currentPage: pg }">
         <div [routerLink]="['/collectionitem/', collectionView?.id, item.id]" class="std-link">
           <div class="coll-grid-img" *ngIf="collectionView?.gridDisplay" [ngStyle]="{'background-image':'url(' + item.thumbnailUri + ')'}"></div>
           <div class="coll-item-name">
@@ -26,6 +26,7 @@
         </div>
       </li>
     </ul>
+    <pagination-controls class="pag-contr" (pageChange)="pg = $event"></pagination-controls>
   </div>
   <div class="footer-buttons">
       <button type="button" class="btn" [routerLink]="['/collections/']">Back</button>

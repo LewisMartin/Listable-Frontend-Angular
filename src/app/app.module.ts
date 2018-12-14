@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,7 +27,6 @@ import { CollectionItemEditComponent } from './components/collection-item-edit/c
 import { AdalService, AdalInterceptor } from 'adal-angular4';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CollectionService } from './services/collection.service';
 
 @NgModule({
@@ -53,7 +54,8 @@ import { CollectionService } from './services/collection.service';
     NgbModule.forRoot(),
     AngularFontAwesomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [
     AuthGuardService, 

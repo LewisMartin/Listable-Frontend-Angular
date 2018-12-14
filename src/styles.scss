@@ -184,3 +184,12 @@ input.ng-touched.ng-invalid {
 .response-error {
     margin: 15px 0px;
 }
+
+
+.pag-contr .ngx-pagination {
+    margin: 10px auto 0px;
+}
+.pag-contr .ngx-pagination .current {
+    background-color: #28bb9e;
+    margin: 0px auto;
+}
