@@ -9,9 +9,14 @@
   </h3>
   <div class="coll-items-cont">
     <div class="display-controls">
+      <div class="search-box">
+          <button type="button" class="btn btn-search" (click)="filter()"><fa name="search"></fa></button>
+          <input maxlength="30" id="searchTerm" type="text" name="searchTerm" [(ngModel)]="searchTerm">
+          <fa *ngIf="searchTerm.length > 0" name="times" class="btn-clear" (click)="clearFilter()"></fa>
+      </div>
       <div class="sort-toggle">
         <label for="sortByName" class="control control-check">A-Z
-          <input id="sortByName" type="checkbox" name="sortByName" [ngModel]="false" (change)="sortByName()">
+          <input id="sortByName" type="checkbox" name="sortByName" [ngModel]="false" (change)="sortToggle()">
           <div class="checkbox-indicator"><div class="tick"></div></div>
         </label>
       </div>

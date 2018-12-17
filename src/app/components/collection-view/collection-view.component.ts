@@ -18,6 +18,8 @@ export class CollectionViewComponent implements OnInit {
 
   spinnerVisible: boolean = true;
 
+  searchTerm: string = '';
+
   constructor(private _route: ActivatedRoute, private _router: Router, private _collectionService: CollectionService) {
     _route.params.subscribe(params => {
       this.collectionId = params['id'];
@@ -27,6 +29,7 @@ export class CollectionViewComponent implements OnInit {
   ngOnInit() {
     this._collectionService.getCollection(this.collectionId).subscribe((data: CollectionView) => { 
       this.collectionView = data;
+      this.setInitialOrder();
       this.displayedCollectionItems = this.collectionView.collectionViewItems.map(x => Object.assign({}, x));
       this.spinnerVisible = false;
     });
@@ -36,13 +39,37 @@ export class CollectionViewComponent implements OnInit {
     // unimplemented
   }
 
-  sortByName() {
-    if(this.displaySorted) {
-      this.displayedCollectionItems = this.collectionView.collectionViewItems.map(x => Object.assign({}, x));
-    } else {
-      this.displayedCollectionItems.sort((a, b) => a.name.localeCompare(b.name));
-    }
-
+  sortToggle() {
     this.displaySorted = !this.displaySorted;
+    this.sort();
   }
+
+  sort() {
+    if(this.displaySorted) {
+      this.displayedCollectionItems.sort((a, b) => a.name.localeCompare(b.name));
+    } else {
+      this.displayedCollectionItems.sort((a, b) => a.pos - b.pos);
+    }
+  }
+
+  filter() {
+    this.displayedCollectionItems = this.collectionView.collectionViewItems.filter(item => item.name.toLowerCase().includes(this.searchTerm.toLowerCase()));
+    this.sort();
+  }
+
+  clearFilter() {
+    this.displayedCollectionItems = this.collectionView.collectionViewItems.map(x => Object.assign({}, x));
+    this.searchTerm = '';
+    this.sort();
+  }
+
+  setInitialOrder() {
+    var i = 0;
+
+    for(let item of this.collectionView.collectionViewItems) {
+      item.pos = i;
+      i++;
+    }
+  }
+
 }

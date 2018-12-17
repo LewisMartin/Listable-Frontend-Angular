@@ -14,6 +14,7 @@ export class CollectionView
 
 export class CollectionViewItem
 {
+    pos: number;
     id: string;
     name: string;
     thumbnailUri: string;

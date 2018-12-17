@@ -196,4 +196,77 @@ input.ng-touched.ng-invalid {
 
 .display-controls {
     position: relative;
+    height: 36px;
+    margin-bottom: 10px;
+}
+.display-controls .sort-toggle {
+    position: absolute;
+    right: 0px;
+    top: 6px;
+}
+
+.search-box {
+    height: 36px;
+    color: $color--grey;
+}
+.search-box > .btn-search {
+    display: inline-block;
+    height: 36px;
+    padding: 0px 10px;
+    border-radius: 0;
+    background-color: $color--white;
+    margin-top: -3px;
+}
+.search-box > input[type=text] {
+    display: inline-block;
+    -webkit-appearance: none;
+    height: 36px;
+    border: 1px solid transparent;
+    width: 250px;
+    padding: 0px 8px;
+}
+.search-box > .btn-clear {
+    height: 36px;
+    cursor: pointer;
+    padding: 0px 8px;
+}
+.search-box > .btn-clear:hover {
+    color: $color--theme-primary;
+}
+
+@media (max-width:500px) and (min-width:0px) {
+    .display-controls {
+        height: auto;
+    }
+    .display-controls .search-box {
+        width: 100%;
+    }
+    .search-box > input[type=text] {
+        width: 200px;
+    }
+}
+
+@media (max-width:460px) and (min-width:420px) {
+    .search-box > input[type=text] {
+        width: 180px;
+    }
+}
+
+@media (max-width:420px) and (min-width:400px) {
+    .search-box > input[type=text] {
+        width: 160px;
+    }
+}
+
+@media (max-width:400px) and (min-width:0px) {
+    .display-controls {
+        height: auto;
+    }
+    .search-box > input[type=text] {
+        width: 150px;
+    }
+    .display-controls .sort-toggle {
+        width: 100%;
+        position: relative;
+    }
 }
