@@ -8,8 +8,16 @@
     </span>
   </h3>
   <div class="coll-items-cont">
+    <div class="display-controls">
+      <div class="sort-toggle">
+        <label for="sortByName" class="control control-check">A-Z
+          <input id="sortByName" type="checkbox" name="sortByName" [ngModel]="false" (change)="sortByName()">
+          <div class="checkbox-indicator"><div class="tick"></div></div>
+        </label>
+      </div>
+    </div>
     <ul [ngClass]="{'coll-items-grid':collectionView?.gridDisplay, 'coll-items-list':!collectionView?.gridDisplay}">
-      <li *ngFor="let item of collectionView?.collectionViewItems | paginate: { itemsPerPage: 20, currentPage: pg }">
+      <li *ngFor="let item of displayedCollectionItems | paginate: { itemsPerPage: 20, currentPage: pg }">
         <div [routerLink]="['/collectionitem/', collectionView?.id, item.id]" class="std-link">
           <div class="coll-grid-img" *ngIf="collectionView?.gridDisplay" [ngStyle]="{'background-image':'url(' + item.thumbnailUri + ')'}"></div>
           <div class="coll-item-name">

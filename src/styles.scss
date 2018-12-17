@@ -120,23 +120,23 @@ input.ng-touched.ng-invalid {
     padding: 8px;
 }
 
-.form-controls-std .control-check {
+.control-check {
     padding-left: 30px;
     cursor: pointer;
 }
 
-.form-controls-std input[type=checkbox] {
+.control-check input[type=checkbox] {
     position: absolute;
     z-index: -1;
     opacity: 0;
 }
-.form-controls-std input[type=checkbox][disabled] ~ .checkbox-indicator,
-.form-controls-std input[type=checkbox][disabled] ~ .checkbox-indicator:hover,
-.form-controls-std input[type=checkbox][disabled] label[for=gridDisplay], {
+.control-check input[type=checkbox][disabled] ~ .checkbox-indicator,
+.control-check input[type=checkbox][disabled] ~ .checkbox-indicator:hover,
+.control-check input[type=checkbox][disabled] label[for=gridDisplay], {
     background-color: $color--light-grey;
 }
 
-.form-controls-std .checkbox-indicator {
+.control-check .checkbox-indicator {
     position: absolute;
     top: 2px;
     left: 0;
@@ -144,7 +144,7 @@ input.ng-touched.ng-invalid {
     width: 20px;
     background-color: $color--light-grey;
 }
-.checkbox-indicator>.tick {
+.control-check .checkbox-indicator>.tick {
     position: absolute;
     left: 8px;
     top: 4px;
@@ -155,16 +155,16 @@ input.ng-touched.ng-invalid {
     transform: rotate(45deg);
     display:none;
 }
-.form-controls-std .checkbox-indicator:hover {
+.control-check .checkbox-indicator:hover {
     background: $color--grey;
 }
-.form-controls-std input:checked ~ .checkbox-indicator {
+.control-check input:checked ~ .checkbox-indicator {
     background: $color--theme-primary;
 }
-.form-controls-std input:checked ~ .checkbox-indicator>.tick {
+.control-check input:checked ~ .checkbox-indicator>.tick {
     display: block;
 }
-.form-controls-std .input:disabled ~ .checkbox-indicator {
+.control-check .input:disabled ~ .checkbox-indicator {
     background: $color--light-grey;
 }
 
@@ -192,4 +192,8 @@ input.ng-touched.ng-invalid {
 .pag-contr .ngx-pagination .current {
     background-color: #28bb9e;
     margin: 0px auto;
+}
+
+.display-controls {
+    position: relative;
 }
