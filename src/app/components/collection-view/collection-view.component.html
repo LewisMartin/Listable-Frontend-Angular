@@ -39,7 +39,12 @@
         </div>
       </li>
     </ul>
-    <pagination-controls class="pag-contr" (pageChange)="pg = $event"></pagination-controls>
+    <div class="pag-cont">
+      <div class="pag-contr">
+        <pagination-controls (pageChange)="pg = $event"></pagination-controls>
+      </div>
+      <div class="pag-item-count">{{displayedCollectionItems.length}} items</div>
+    </div>
   </div>
   <div class="footer-buttons">
       <button type="button" class="btn" [routerLink]="['/collections/']">Back</button>

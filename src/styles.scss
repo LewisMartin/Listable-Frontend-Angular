@@ -185,7 +185,22 @@ input.ng-touched.ng-invalid {
     margin: 15px 0px;
 }
 
-
+.pag-cont {
+    width: 100%;
+    position: relative;
+}
+.pag-contr {
+    padding-right:70px;
+}
+.pag-item-count {
+    width: 70px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    text-align: right;
+    line-height: 30px;
+    font-size: 14px;
+}
 .pag-contr .ngx-pagination {
     margin: 10px auto 0px;
 }
