@@ -12,13 +12,18 @@ export class AuthCallbackComponent implements OnInit {
   constructor(private _router: Router, private _authService: AuthService, private _zone: NgZone) { }
 
   ngOnInit() {
-    this._authService.completeAuthentication();
-
-    setTimeout(() => {
-      this._zone.run(
-        () => this._router.navigate(['/'])
-      );
-    }, 200);
+    this._authService.completeAuthentication().subscribe((data: any) => {
+      if(data) {
+        this._zone.run(
+          () => this._router.navigate(['/'])
+        );
+      }
+      else {
+        this._authService.signout;
+      }
+    }, err => {
+      this._authService.signout;
+    });
   }
 
 }

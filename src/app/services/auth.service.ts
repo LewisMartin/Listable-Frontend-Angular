@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AdalService } from 'adal-angular4';
 import { environment } from '../../environments/environment';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { AccountService } from './account.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class AuthService {
 
   userName: Subject<string> = new Subject();
   loggedIn: Subject<boolean> = new Subject();
+  authorized: boolean = false;
 
   private _adalConfig = {
     tenant: environment.tenant,
@@ -21,12 +23,16 @@ export class AuthService {
     }
   }
 
-  constructor(private _adal: AdalService) {
+  constructor(private _adal: AdalService, private _accountService: AccountService) {
     this._adal.init(this._adalConfig);
   }
 
-  public isLoggedIn():boolean {
+  public isAuthenticated():boolean {
     return this._adal.userInfo.authenticated;
+  }
+
+  public isAuthorized():boolean {
+    return this.authorized;
   }
 
   public getName():string {
@@ -49,10 +55,28 @@ export class AuthService {
     this._adal.login();
   }
 
-  public completeAuthentication():void {
+  public completeAuthentication(): Observable<boolean> {
     this._adal.handleWindowCallback();
 
-    this.loggedIn.next(this._adal.userInfo.authenticated);
-    this.userName.next(this._adal.userInfo.userName);
+    var subject = new Subject<boolean>();
+
+    if(window === window.parent) {
+      this._accountService.accountLoginCheck().subscribe((data: any) => {       
+        this.authorized = true;
+        this.loggedIn.next(this._adal.userInfo.authenticated);
+        this.userName.next(this._adal.userInfo.userName);
+  
+        subject.next(true);
+      }, err => {
+        subject.next(false);
+      });
+  
+      return subject.asObservable();
+    } 
+    else 
+    {
+      subject.next(false);
+      return subject.asObservable();
+    }
   }
 }
