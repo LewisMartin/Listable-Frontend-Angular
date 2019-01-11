@@ -35,7 +35,7 @@ export class CollectionItemCreateComponent implements OnInit {
   }
 
   cancel() {
-    this._router.navigate(['/collection/', this.collectionId]);
+    this._router.navigate(['/home/collection/', this.collectionId]);
   }
 
   submit(form: NgForm) {
@@ -49,7 +49,7 @@ export class CollectionItemCreateComponent implements OnInit {
     newCollectionItem.ImageFile = this.fileInput.nativeElement;
 
     this._collectionService.createCollectionItem(newCollectionItem).subscribe((data: any) => {
-      this._router.navigate(['/collection/', this.collectionId]);
+      this._router.navigate(['/home/collection/', this.collectionId]);
     }, err => {
       console.log("Error occured: " + err.message);
       this.showResponseError();

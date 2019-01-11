@@ -29,7 +29,7 @@ export class CollectionCreateComponent implements OnInit {
     newCollection.GridDisplay = form.value.gridDisplay;
 
     this._collectionService.createCollection(newCollection).subscribe((data: any) => {
-      this._router.navigate(['/collections/']);
+      this._router.navigate(['/home/collections/']);
     }, err => {
       console.log("Error occured: " + err.message);
       this.showResponseError();

@@ -43,7 +43,7 @@ export class CollectionItemEditComponent implements OnInit {
   }
 
   cancel() {
-    this._router.navigate(['/collectionitem/', this.collectionId, this.collectionItemId]);
+    this._router.navigate(['/home/collectionitem/', this.collectionId, this.collectionItemId]);
   }
 
   submit(form: NgForm) {
@@ -58,7 +58,7 @@ export class CollectionItemEditComponent implements OnInit {
     editedCollectionItem.ImageFile = this.fileInput.nativeElement;
 
     this._collectionService.editCollectionItem(editedCollectionItem).subscribe((data: any) => {
-      this._router.navigate(['/collectionitem/', this.collectionId, this.collectionItemId]);
+      this._router.navigate(['/home/collectionitem/', this.collectionId, this.collectionItemId]);
     }, err => {
       console.log("Error occured: " + err.message);
       this.showResponseError();

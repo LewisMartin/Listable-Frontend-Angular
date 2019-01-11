@@ -18,60 +18,22 @@ import { CollectionEditComponent } from './components/collection-edit/collection
 import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
-  { path: '', canActivate: [AuthGuardService], children: [
-    {
-      path: '',
-      component: HomeComponent,
-    },
-    {
-      path: 'explore',
-      component: ExploreComponent,
-    },
-    {
-      path: 'profile/:userId',
-      component: ProfileComponent,
-    },
-    {
-      path: 'collections',
-      component: CollectionsComponent,
-    },
-    {
-      path: 'collection/create',
-      component: CollectionCreateComponent
-    },
-    {
-      path: 'collection/delete',
-      component: CollectionDeleteComponent
-    },
-    {
-      path: 'collection/edit/:id',
-      component: CollectionEditComponent
-    },
-    {
-      path: 'collection/:id',
-      component: CollectionViewComponent
-    },
-    {
-      path: 'collectionitem/create/:collectionId',
-      component: CollectionItemCreateComponent
-    },
-    {
-      path: 'collectionitem/edit/:collectionId/:itemId',
-      component: CollectionItemEditComponent
-    },
-    {
-      path: 'collectionitem/delete/:collectionId/:itemId',
-      component: CollectionItemDeleteComponent
-    },
-    {
-      path: 'collectionitem/:collectionId/:itemId',
-      component: CollectionItemViewComponent
-    }
-  ]},
-  {
-    path: 'auth-callback',
-    component: AuthCallbackComponent
-  }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'auth-callback', component: AuthCallbackComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuardService], children: [
+    { path: '', redirectTo: 'collections', pathMatch: 'full' },
+    { path: 'explore', component: ExploreComponent },
+    { path: 'profile/:userId', component: ProfileComponent },
+    { path: 'collections', component: CollectionsComponent },
+    { path: 'collection/create', component: CollectionCreateComponent },
+    { path: 'collection/delete', component: CollectionDeleteComponent },
+    { path: 'collection/edit/:id', component: CollectionEditComponent },
+    { path: 'collection/:id', component: CollectionViewComponent },
+    { path: 'collectionitem/create/:collectionId', component: CollectionItemCreateComponent },
+    { path: 'collectionitem/edit/:collectionId/:itemId', component: CollectionItemEditComponent },
+    { path: 'collectionitem/delete/:collectionId/:itemId', component: CollectionItemDeleteComponent },
+    { path: 'collectionitem/:collectionId/:itemId', component: CollectionItemViewComponent }
+  ]}
 ];
 
 @NgModule({

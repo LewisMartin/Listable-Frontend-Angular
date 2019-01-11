@@ -7,7 +7,7 @@
   </h3>
   <div class="coll-list-cont">
     <ul class="col-list">
-        <a *ngFor="let collection of collectionList" [routerLink]="['/collection/', collection.id]">
+        <a *ngFor="let collection of collectionList" [routerLink]="['/home/collection/', collection.id]">
           <li class="col-name">
               {{ collection.name }}
           </li>
@@ -16,7 +16,7 @@
   </div>
 
   <div class="footer-buttons">
-      <button type="button" class="btn" [routerLink]="['/collection/create']">New</button>
-      <button type="button" class="btn" [routerLink]="['/collection/delete']">Delete</button>
+      <button type="button" class="btn" [routerLink]="['/home/collection/create']">New</button>
+      <button type="button" class="btn" [routerLink]="['/home/collection/delete']">Delete</button>
   </div>
 </div>

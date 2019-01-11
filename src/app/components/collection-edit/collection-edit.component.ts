@@ -34,7 +34,7 @@ export class CollectionEditComponent implements OnInit {
   }
 
   cancel() {
-    this._router.navigate(['/collection/', this.collectionId]);
+    this._router.navigate(['/home/collection/', this.collectionId]);
   }
 
   submit(form: NgForm) {
@@ -47,7 +47,7 @@ export class CollectionEditComponent implements OnInit {
     this.editedCollection.GridDisplay = form.value.gridDisplay;
 
     this._collectionService.editCollection(this.editedCollection).subscribe((data: any) => {
-      this._router.navigate(['/collection/', this.collectionId]);
+      this._router.navigate(['/home/collection/', this.collectionId]);
     }, err => {
       console.log("Error occured: " + err.message);
       this.showResponseError();

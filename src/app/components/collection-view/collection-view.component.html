@@ -3,7 +3,7 @@
 <div class="coll-view" *ngIf="!spinnerVisible">
   <h3>
     {{collectionView?.name}} 
-    <span [routerLink]="['/collection/edit/', collectionView?.id]">
+    <span [routerLink]="['/home/collection/edit/', collectionView?.id]">
       <fa name="edit" class="coll-title-icon"></fa>
     </span>
   </h3>
@@ -23,7 +23,7 @@
     </div>
     <ul [ngClass]="{'coll-items-grid':collectionView?.gridDisplay, 'coll-items-list':!collectionView?.gridDisplay}">
       <li *ngFor="let item of displayedCollectionItems | paginate: { itemsPerPage: 20, currentPage: pg }">
-        <div [routerLink]="['/collectionitem/', collectionView?.id, item.id]" class="std-link">
+        <div [routerLink]="['/home/collectionitem/', collectionView?.id, item.id]" class="std-link">
           <div class="coll-grid-img" *ngIf="collectionView?.gridDisplay" [ngStyle]="{'background-image':'url(' + item.thumbnailUri + ')'}"></div>
           <div class="coll-item-name">
             {{ item.name }}
@@ -33,7 +33,7 @@
           <div class="coll-item-likes" ng-click="addLike(item.id)">
             0 likes
           </div>      
-          <div class="coll-item-edit std-link" [routerLink]="['/collectionitem/edit/', collectionView?.id, item.id]">
+          <div class="coll-item-edit std-link" [routerLink]="['/home/collectionitem/edit/', collectionView?.id, item.id]">
             Edit
           </div>
         </div>
@@ -47,7 +47,7 @@
     </div>
   </div>
   <div class="footer-buttons">
-      <button type="button" class="btn" [routerLink]="['/collections/']">Back</button>
-      <button type="button" class="btn btn-new-item" [routerLink]="['/collectionitem/create/', collectionView?.id]">New Item</button>
+      <button type="button" class="btn" [routerLink]="['/home/collections/']">Back</button>
+      <button type="button" class="btn btn-new-item" [routerLink]="['/home/collectionitem/create/', collectionView?.id]">New Item</button>
   </div>
 </div>

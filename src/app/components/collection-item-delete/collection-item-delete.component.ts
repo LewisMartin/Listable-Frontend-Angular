@@ -44,7 +44,7 @@ export class CollectionItemDeleteComponent implements OnInit {
     deletedCollectionItem.CollectionItemId = this.itemId;
 
     this._collectionService.deleteCollectionItem(deletedCollectionItem).subscribe((data: any) => {
-      this._router.navigate(['/collection/', this.collectionId]);
+      this._router.navigate(['/home/collection/', this.collectionId]);
     }, err => {
       console.log("Error occured: " + err.message);
       this.showResponseError();
