@@ -17,4 +17,13 @@ export class AccountService {
   public accountLoginCheck() {
     return this._http.get(this._accessPointUrl + '/accountlogincheck', {headers: this._headers});
   }
+
+  public getProfile(userId: string) {
+    return this._http.get(this._accessPointUrl + '/getprofile?userId=' + userId, {headers: this._headers});
+  }
+
+  public getProfileForAuthenticatedUser() {
+    return this._http.get(this._accessPointUrl + '/getprofileforauthenticateduser', {headers: this._headers})
+  }
+
 }

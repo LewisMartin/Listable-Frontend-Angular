@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuardService], children: [
     { path: '', redirectTo: 'collections', pathMatch: 'full' },
     { path: 'explore', component: ExploreComponent },
+    { path: 'profile', component: ProfileComponent },
     { path: 'profile/:userId', component: ProfileComponent },
     { path: 'collections', component: CollectionsComponent },
     { path: 'collection/create', component: CollectionCreateComponent },

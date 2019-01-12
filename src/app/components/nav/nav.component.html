@@ -17,7 +17,7 @@
         <a class="nav-link" (click)="signIn();"><fa name="user" class="icon-bump"></fa> Sign In</a>
       </li>
       <li class="nav-item dropdown" *ngIf="loggedIn == true">
-        <a [routerLink]="['profile', userId]" class="nav-link" (click)="collapse()"><fa name="user" class="icon-bump"></fa> {{userName}}</a>
+        <a [routerLink]="['profile']" class="nav-link" (click)="collapse()"><fa name="user" class="icon-bump"></fa> {{userName}}</a>
       </li>
     </ul>
   </div>
