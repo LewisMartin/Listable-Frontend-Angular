@@ -29,6 +29,12 @@ body {
 .icon-bump {
     margin: 0px 4px;
 }
+.icon-ok {
+    color: #24be39;
+}
+.icon-err {
+    color: #d42811;
+}
 
 a {
     cursor: pointer;
@@ -48,6 +54,22 @@ ul {
     width:100%;
     max-width: 600px;
     margin: 0px auto;
+}
+
+.spin-large > .sk-circle {
+    height:50px;
+    width:50px;
+}
+.spin-medium > .sk-circle {
+    height:40px;
+    width:40px;
+}
+.spin-small > .sk-circle {
+    height:28px;
+    width:28px;
+}
+.spin-dark .sk-circle .sk-child:before {
+    background-color: $color--dark-grey !important;
 }
 
 .text-atn {
@@ -118,6 +140,22 @@ input.ng-touched.ng-invalid {
     min-height:200px;
     max-height: 500px;
     padding: 8px;
+}
+
+.control-with-val {
+    padding-right: 45px;
+}
+.control-with-val .val-indicator {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    text-align: center;
+    line-height: 40px;
+}
+.control-with-val .val-pending {
+    margin-top: 4px;
 }
 
 .control-check {

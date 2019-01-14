@@ -1,0 +1,26 @@
+.profile-cont {
+    background-color: #ffffff;
+}
+.profile-cont > h3 {
+    width: 100%;
+    margin: 0px;
+    padding: 14px;
+}
+.profile-cont > .footer-buttons {
+    position: relative;
+    width: 100%;
+    padding: 10px 14px;
+    text-align: right; 
+}
+.profile-props {
+    padding: 15px;
+    font-size: 15px;
+    background-color: #f7f7f7;
+}
+.profile-props > div {
+    height: 30px;
+    width: 100%;
+    line-height: 30px;
+    text-align:left;
+    margin: 8px;
+}

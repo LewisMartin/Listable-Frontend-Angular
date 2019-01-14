@@ -48,7 +48,7 @@ export class ProfileEditComponent implements OnInit {
   }
 
   cancel() {
-    this._router.navigate(['/home/profile/', this.profileView.id]);
+    this._router.navigate(['/home/profile/']);
   }
 
   submit(post) {

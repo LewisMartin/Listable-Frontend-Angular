@@ -1,27 +1,16 @@
-<loading-spinner *ngIf="spinnerVisible"></loading-spinner>
+<loading-spinner class="spin-large" *ngIf="spinnerVisible"></loading-spinner>
 
 <div class="modal-width" *ngIf="!spinnerVisible">
-    <h3>
-        {{ profileView?.displayName }}
-    </h3>
-
-    <span>
-        User Id: {{ profileView?.id }}
-    </span>
-
-    <span>
-        Display Name: {{ profileView?.displayName }}
-    </span>
-
-    <span>
-        First Name: {{ profileView?.firstName }}
-    </span>
-
-    <span>
-        Last Name: {{ profileView?.lastName }}
-    </span>
-
-    <div class="footer-buttons">
-        <button type="button" class="btn btn-edit" [routerLink]="['/home/profile/edit/']">Edit</button>
+    <div class="profile-cont">
+        <h3> {{ profileView?.displayName }} </h3>
+        <div class="profile-props">
+            <div>User Id: {{ profileView?.id }} </div>
+            <div>Display Name: {{ profileView?.displayName }}</div>
+            <div>First Name: {{ profileView?.firstName }}</div>
+            <div>Last Name: {{ profileView?.lastName }}</div>
+        </div>
+        <div class="footer-buttons">
+            <button type="button" class="btn btn-edit" [routerLink]="['/home/profile/edit/']">Edit</button>
+        </div>
     </div>
 </div>

@@ -1,28 +1,32 @@
-<loading-spinner *ngIf="spinnerVisible"></loading-spinner>
+<loading-spinner class="spin-large" *ngIf="spinnerVisible"></loading-spinner>
 
-<div class="coll-item-view modal-width" *ngIf="!spinnerVisible">
+<div class="modal-width" *ngIf="!spinnerVisible">
   <form [formGroup]="rForm" (ngSubmit)="submit(rForm.value)">
     <div class="form-controls-std">
 
-      <div class="form-group">
-        <label> Display Name:
+      <h3>Profile Editor</h3>
+
+      <div class="form-group ">
+        <label class="control control-text control-with-val"> Display Name:
           <input type="text" formControlName="displayName">
+          <div class="val-indicator">
+              <div class="val-pending" *ngIf="!rForm.controls['displayName'].errors?.displayNameTaken && !displayNameValidated">
+                <loading-spinner class="spin-small spin-dark"></loading-spinner>
+              </div>
+              <fa name="check" class="icon-bump icon-ok" *ngIf="!rForm.controls['displayName'].errors?.displayNameTaken && displayNameValidated"></fa>
+              <fa name="close" class="icon-bump icon-err" *ngIf="rForm.controls['displayName'].errors?.displayNameTaken"></fa>
+          </div>
         </label>
-        <div class="validation-indicator">
-          <loading-spinner *ngIf="!rForm.controls['displayName'].errors?.displayNameTaken && !displayNameValidated"></loading-spinner>
-          <fa name="check" class="icon-bump" *ngIf="!rForm.controls['displayName'].errors?.displayNameTaken && displayNameValidated"></fa>
-          <fa name="close" class="icon-bump" *ngIf="rForm.controls['displayName'].errors?.displayNameTaken"></fa>
-        </div>
       </div>
 
       <div class="form-group">
-        <label> First Name:
+        <label class="control control-text"> First Name:
             <input type="text" formControlName="firstName">
         </label>
       </div>
 
       <div class="form-group">
-        <label> Last Name:
+        <label class="control control-text"> Last Name:
             <input type="text" formControlName="lastName">
         </label>
       </div>
@@ -31,12 +35,11 @@
         <button type="button" class="btn btn-cancel" (click)="cancel()">Cancel</button>
         <input type="submit" class="btn btn-submit" value="Update" [disabled]="!rForm.valid || disableSubmit">
       </div>
-
-      <div class="form-val-errors" *ngIf="!rForm.valid">
-        <div *ngIf="rForm.controls['displayName'].touched && rForm.controls['displayName'].errors?.required">Display name is required!</div>
-        <div *ngIf="rForm.controls['displayName'].touched && rForm.controls['displayName'].errors?.pattern">Display name can only contain letters and numbers!</div>
-        <div *ngIf="rForm.controls['displayName'].touched && rForm.controls['displayName'].errors?.displayNameTaken">Display name is already taken!</div>
-      </div>
+    </div>
+    <div class="form-val-errors" *ngIf="!rForm.valid">
+      <div *ngIf="rForm.controls['displayName'].touched && rForm.controls['displayName'].errors?.required">Display name is required!</div>
+      <div *ngIf="rForm.controls['displayName'].touched && rForm.controls['displayName'].errors?.pattern">Display name can only contain letters and numbers!</div>
+      <div *ngIf="rForm.controls['displayName'].touched && rForm.controls['displayName'].errors?.displayNameTaken">Display name is already taken!</div>
     </div>
   </form>
 
