@@ -1,0 +1,45 @@
+<loading-spinner *ngIf="spinnerVisible"></loading-spinner>
+
+<div class="coll-item-view modal-width" *ngIf="!spinnerVisible">
+  <form [formGroup]="rForm" (ngSubmit)="submit(rForm.value)">
+    <div class="form-controls-std">
+
+      <div class="form-group">
+        <label> Display Name:
+          <input type="text" formControlName="displayName">
+        </label>
+        <div class="validation-indicator">
+          <loading-spinner *ngIf="!rForm.controls['displayName'].errors?.displayNameTaken && !displayNameValidated"></loading-spinner>
+          <fa name="check" class="icon-bump" *ngIf="!rForm.controls['displayName'].errors?.displayNameTaken && displayNameValidated"></fa>
+          <fa name="close" class="icon-bump" *ngIf="rForm.controls['displayName'].errors?.displayNameTaken"></fa>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label> First Name:
+            <input type="text" formControlName="firstName">
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label> Last Name:
+            <input type="text" formControlName="lastName">
+        </label>
+      </div>
+
+      <div class="footer-buttons">
+        <button type="button" class="btn btn-cancel" (click)="cancel()">Cancel</button>
+        <input type="submit" class="btn btn-submit" value="Update" [disabled]="!rForm.valid || disableSubmit">
+      </div>
+
+      <div class="form-val-errors" *ngIf="!rForm.valid">
+        <div *ngIf="rForm.controls['displayName'].touched && rForm.controls['displayName'].errors?.required">Display name is required.</div>
+        <div *ngIf="rForm.controls['displayName'].touched && rForm.controls['displayName'].errors?.displayNameTaken">Display name is already taken!</div>
+      </div>
+    </div>
+  </form>
+
+  <div class="alert alert-danger response-error" *ngIf="responseErrorVisible">
+    An unexpected server error occured while processing the request.
+  </div>
+</div>

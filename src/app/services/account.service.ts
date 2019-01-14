@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { EditProfileFormModel } from '../Models/EditProfileFormModel';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,14 @@ export class AccountService {
 
   public getProfileForAuthenticatedUser() {
     return this._http.get(this._accessPointUrl + '/getprofileforauthenticateduser', {headers: this._headers})
+  }
+
+  public checkDisplayName(desiredName: string) {
+    return this._http.get(this._accessPointUrl + '/checkdisplayname?displayName=' + desiredName, {headers: this._headers});
+  }
+
+  public editProfile(editedProfile: EditProfileFormModel) {
+    return this._http.post(this._accessPointUrl + '/editprofile', editedProfile, {headers: this._headers});
   }
 
 }

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CollectionsComponent } from './components/collections/collections.component';
 import { ExploreComponent } from './components/explore/explore.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { CollectionCreateComponent } from './components/collection-create/collection-create.component';
@@ -38,6 +39,7 @@ import { AccountService } from './services/account.service';
     CollectionsComponent,
     ExploreComponent,
     ProfileComponent,
+    ProfileEditComponent,
     AuthCallbackComponent,
     LoadingSpinnerComponent,
     CollectionCreateComponent,
@@ -56,6 +58,7 @@ import { AccountService } from './services/account.service';
     AngularFontAwesomeModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     NgxPaginationModule
   ],
   providers: [

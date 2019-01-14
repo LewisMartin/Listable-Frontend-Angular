@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ExploreComponent } from './components/explore/explore.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { CollectionsComponent } from './components/collections/collections.component';
 import { AuthCallbackComponent } from './components/auth-callback/auth-callback.component';
 import { CollectionViewComponent } from './components/collection-view/collection-view.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuardService], children: [
     { path: '', redirectTo: 'collections', pathMatch: 'full' },
     { path: 'explore', component: ExploreComponent },
+    { path: 'profile/edit', component: ProfileEditComponent },
     { path: 'profile', component: ProfileComponent },
     { path: 'profile/:userId', component: ProfileComponent },
     { path: 'collections', component: CollectionsComponent },
