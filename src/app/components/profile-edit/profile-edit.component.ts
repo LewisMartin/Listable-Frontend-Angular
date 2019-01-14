@@ -38,7 +38,7 @@ export class ProfileEditComponent implements OnInit {
       this.lastName = this.profileView.lastName;
 
       this.rForm = this._fb.group({
-        'displayName': [this.displayName, Validators.compose([Validators.required, Validators.maxLength(20)]), this.validateDisplayName.bind(this)],
+        'displayName': [this.displayName, Validators.compose([Validators.required, Validators.maxLength(20), Validators.pattern('^[0-9a-zA-Z]+')]), this.validateDisplayName.bind(this)],
         'firstName': [this.firstName, Validators.maxLength(30)],
         'lastName': [this.lastName, Validators.maxLength(40)],
       });

@@ -33,7 +33,8 @@
       </div>
 
       <div class="form-val-errors" *ngIf="!rForm.valid">
-        <div *ngIf="rForm.controls['displayName'].touched && rForm.controls['displayName'].errors?.required">Display name is required.</div>
+        <div *ngIf="rForm.controls['displayName'].touched && rForm.controls['displayName'].errors?.required">Display name is required!</div>
+        <div *ngIf="rForm.controls['displayName'].touched && rForm.controls['displayName'].errors?.pattern">Display name can only contain letters and numbers!</div>
         <div *ngIf="rForm.controls['displayName'].touched && rForm.controls['displayName'].errors?.displayNameTaken">Display name is already taken!</div>
       </div>
     </div>
