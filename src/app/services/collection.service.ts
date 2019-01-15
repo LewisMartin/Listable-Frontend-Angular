@@ -19,7 +19,7 @@ export class CollectionService {
     this._headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
   }
 
-  public getCollectionsForUser(userId: string) {
+  public getCollectionsForUser(userId: number) {
     return this._http.get(this._accessPointUrl + '/getcollections?userId=' + userId, {headers: this._headers});
   }
 
@@ -79,7 +79,7 @@ export class CollectionService {
     formData.append("Name", newCollectionItem.Name);
     formData.append("Description", newCollectionItem.Description);
 
-    if (newCollectionItem.ImageFile.files && newCollectionItem.ImageFile.files[0]) {
+    if (newCollectionItem.ImageFile && newCollectionItem.ImageFile.files[0]) {
       formData.append("ImageFile", newCollectionItem.ImageFile.files[0]);
     }
 

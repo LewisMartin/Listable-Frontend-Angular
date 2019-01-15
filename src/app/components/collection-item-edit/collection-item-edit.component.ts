@@ -55,7 +55,9 @@ export class CollectionItemEditComponent implements OnInit {
     editedCollectionItem.Id = this.collectionItemId;
     editedCollectionItem.Name = form.value.itemName;
     editedCollectionItem.Description = form.value.itemDesc;
-    editedCollectionItem.ImageFile = this.fileInput.nativeElement;
+
+    if(this.fileInput)
+      editedCollectionItem.ImageFile = this.fileInput.nativeElement;
 
     this._collectionService.editCollectionItem(editedCollectionItem).subscribe((data: any) => {
       this._router.navigate(['/home/collectionitem/', this.collectionId, this.collectionItemId]);

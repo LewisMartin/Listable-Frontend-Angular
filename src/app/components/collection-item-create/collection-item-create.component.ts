@@ -46,7 +46,9 @@ export class CollectionItemCreateComponent implements OnInit {
     newCollectionItem.CollectionId = form.value.collId;
     newCollectionItem.Name = form.value.itemName;
     newCollectionItem.Description = form.value.itemDesc;
-    newCollectionItem.ImageFile = this.fileInput.nativeElement;
+
+    if(this.fileInput)
+      newCollectionItem.ImageFile = this.fileInput.nativeElement;
 
     this._collectionService.createCollectionItem(newCollectionItem).subscribe((data: any) => {
       this._router.navigate(['/home/collection/', this.collectionId]);

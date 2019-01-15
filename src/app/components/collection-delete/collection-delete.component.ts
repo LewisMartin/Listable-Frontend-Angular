@@ -40,7 +40,7 @@ export class CollectionDeleteComponent implements OnInit {
     this.hideResponseError();
 
     this._collectionService.deleteCollection(form.value.selectedCollection).subscribe(result => {
-      this._router.navigate(['/collections/']);
+      this._router.navigate(['/home/collections/']);
     }, err => {
       console.log("Error occured: " + err.message);
       this.showResponseError();
