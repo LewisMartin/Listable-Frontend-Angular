@@ -14,6 +14,13 @@
       </div>
   
       <div class="form-group">
+        <label for="privateMode" class="control control-check">Private
+          <input id="privateMode" type="checkbox" name="privateMode" [ngModel]="collectionSettings?.privateMode" #privateMode="ngModel" [value]="false">
+          <div class="checkbox-indicator"><div class="tick"></div></div>
+        </label>
+      </div>
+
+      <div class="form-group">
         <label for="gridDisplay" class="control control-check">Grid Display
           <input id="gridDisplay" type="checkbox" name="gridDisplay" [ngModel]="collectionSettings?.gridDisplay" #gridDisplay="ngModel">
           <div class="checkbox-indicator"><div class="tick"></div></div>

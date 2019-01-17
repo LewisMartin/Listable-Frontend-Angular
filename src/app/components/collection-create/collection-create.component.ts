@@ -25,6 +25,7 @@ export class CollectionCreateComponent implements OnInit {
 
     var newCollection = new CreateCollectionFormModel();
     newCollection.Name = form.value.collectionName;
+    newCollection.PrivateMode = form.value.privateMode;
     newCollection.ImageEnabled = form.value.imageEnabled;
     newCollection.GridDisplay = form.value.gridDisplay;
 

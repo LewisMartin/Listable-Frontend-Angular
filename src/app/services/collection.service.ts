@@ -41,25 +41,13 @@ export class CollectionService {
   }
 
   public createCollection(newCollection: CreateCollectionFormModel) {
-    var body = {
-      Name: newCollection.Name,
-      ImageEnabled: newCollection.ImageEnabled,
-      GridDisplay: newCollection.GridDisplay
-    }
-
-    return this._http.post<CreateCollectionFormModel>(this._accessPointUrl + '/createcollection', body, {
+    return this._http.post<CreateCollectionFormModel>(this._accessPointUrl + '/createcollection', newCollection, {
       headers: this._headers
     });
   }
 
   public editCollection(editedCollection: EditCollectionFormModel) {
-    var body = {
-      Id: editedCollection.Id,
-      Name: editedCollection.Name,
-      GridDisplay: editedCollection.GridDisplay
-    }
-
-    return this._http.post<EditCollectionFormModel>(this._accessPointUrl + '/editcollection', body, {
+    return this._http.post<EditCollectionFormModel>(this._accessPointUrl + '/editcollection', editedCollection, {
       headers: this._headers
     });
   }

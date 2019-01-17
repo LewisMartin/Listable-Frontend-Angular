@@ -43,6 +43,7 @@ export class CollectionEditComponent implements OnInit {
 
     this.editedCollection = new EditCollectionFormModel();
     this.editedCollection.Id = form.value.collectionId;
+    this.editedCollection.PrivateMode = form.value.privateMode;
     this.editedCollection.Name = form.value.collectionName;
     this.editedCollection.GridDisplay = form.value.gridDisplay;
 

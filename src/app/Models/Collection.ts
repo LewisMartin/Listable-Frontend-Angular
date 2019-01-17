@@ -8,6 +8,7 @@ export class CollectionView
 {
     id: string;
     name: string;
+    privateMode: boolean;
     gridDisplay: boolean;
     collectionViewItems: Array<CollectionViewItem>;
 }
@@ -35,6 +36,7 @@ export class CollectionSettings
 {
     id: string;
     name: string;
+    privateMode: boolean;
     imageEnabled: boolean;
     gridDisplay: boolean;
 }
