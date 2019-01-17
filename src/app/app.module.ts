@@ -24,12 +24,14 @@ import { CollectionItemViewComponent } from './components/collection-item-view/c
 import { CollectionItemCreateComponent } from './components/collection-item-create/collection-item-create.component';
 import { CollectionItemDeleteComponent } from './components/collection-item-delete/collection-item-delete.component';
 import { CollectionItemEditComponent } from './components/collection-item-edit/collection-item-edit.component';
+import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 
 import { AdalService, AdalInterceptor } from 'adal-angular4';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { CollectionService } from './services/collection.service';
 import { AccountService } from './services/account.service';
+import { ErrorInterceptor } from './interceptors/ErrorInterceptor';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { AccountService } from './services/account.service';
     CollectionItemViewComponent,
     CollectionItemCreateComponent,
     CollectionItemDeleteComponent,
-    CollectionItemEditComponent
+    CollectionItemEditComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +69,7 @@ import { AccountService } from './services/account.service';
     AuthService, 
     AdalService, 
     { provide: HTTP_INTERCEPTORS, useClass: AdalInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     CollectionService,
     AccountService
   ],

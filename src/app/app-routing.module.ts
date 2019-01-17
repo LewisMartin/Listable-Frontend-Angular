@@ -15,6 +15,7 @@ import { CollectionItemDeleteComponent } from './components/collection-item-dele
 import { CollectionCreateComponent } from './components/collection-create/collection-create.component';
 import { CollectionDeleteComponent } from './components/collection-delete/collection-delete.component';
 import { CollectionEditComponent } from './components/collection-edit/collection-edit.component';
+import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 
 import { AuthGuardService } from './services/auth-guard.service';
 
@@ -35,7 +36,8 @@ const routes: Routes = [
     { path: 'collectionitem/create/:collectionId', component: CollectionItemCreateComponent },
     { path: 'collectionitem/edit/:collectionId/:itemId', component: CollectionItemEditComponent },
     { path: 'collectionitem/delete/:collectionId/:itemId', component: CollectionItemDeleteComponent },
-    { path: 'collectionitem/:collectionId/:itemId', component: CollectionItemViewComponent }
+    { path: 'collectionitem/:collectionId/:itemId', component: CollectionItemViewComponent },
+    { path: 'forbidden', component: ForbiddenComponent }
   ]}
 ];
 
