@@ -1,3 +1,46 @@
-<p>
-  Explore
-</p>
+<div class="explore-cont">
+  <h3>
+    Explore collections
+  </h3>
+
+  <div class="explore-inner">
+    <div class="display-controls">
+      <div class="search-box">
+          <button type="button" class="btn btn-search" (click)="search()"><fa name="search"></fa></button>
+          <input maxlength="30" id="searchTerm" type="text" name="searchTerm" [(ngModel)]="searchTerm">
+          <fa *ngIf="searchTerm.length > 0" name="times" class="btn-clear" (click)="clearSearch()"></fa>
+      </div>
+      <div class="sort-toggle">
+        <label for="sortByName" class="control control-check">A-Z
+          <input id="sortByName" type="checkbox" name="sortByName" [ngModel]="false" (change)="sortToggle()">
+          <div class="checkbox-indicator"><div class="tick"></div></div>
+        </label>
+      </div>
+    </div>
+    <div class="results-cont">
+      <loading-spinner class="spin-medium spin-dark" *ngIf="spinnerVisible"></loading-spinner>
+      <span *ngIf="collectionQueryResults.count == 0 && !spinnerVisible">Nothing to see here..</span>
+      <ul class="results-list">
+          <a *ngFor="let result of collectionQueryResults.queryResults | paginate: { itemsPerPage: 20, currentPage: pg }" [routerLink]="['/home/collection/', result.id]">
+            <li>
+              <span class="res-name">{{ result.name }}</span>
+              <span class="res-count">{{ result.collectionSize }} items</span>
+              <span class="res-type">
+                <fa name="list-ul" class="icon-bump" *ngIf="!result.imageEnabled"></fa>
+                <fa name="camera-retro" class="icon-bump" *ngIf="result.imageEnabled"></fa>
+              </span>
+            </li>
+          </a>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-buttons">
+    <div class="pag-cont">
+      <div class="pag-contr">
+        <pagination-controls (pageChange)="pg = $event"></pagination-controls>
+      </div>
+      <div class="pag-item-count">{{ collectionQueryResults.count }} results</div>
+    </div>
+  </div>
+</div>

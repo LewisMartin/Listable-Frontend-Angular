@@ -6,6 +6,7 @@ import { EditCollectionFormModel } from '../Models/EditCollectionFormModel';
 import { CreateCollectionItemFormModel } from '../Models/CreateCollectionItemFormModel';
 import { EditCollectionItemFormModel } from '../Models/EditCollectionItemFormModel';
 import { DeleteCollectionItemFormModel } from '../Models/DeleteCollectionItemFormModel';
+import { CollectionQueryFormModel } from '../Models/CollectionQueryFormModel';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,10 @@ export class CollectionService {
 
   public getCollection(id: string) {
     return this._http.get(this._accessPointUrl + '/getcollection?id=' + id, {headers: this._headers});
+  }
+
+  public queryCollections(query: CollectionQueryFormModel) {
+    return this._http.post<CollectionQueryFormModel>(this._accessPointUrl + '/querycollections', query, { headers: this._headers });
   }
 
   public getCollectionSettings(id: string) {
