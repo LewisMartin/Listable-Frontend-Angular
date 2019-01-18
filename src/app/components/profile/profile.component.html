@@ -10,7 +10,7 @@
             <div>Last Name: {{ profileView?.lastName }}</div>
         </div>
         <div class="footer-buttons">
-            <button type="button" class="btn btn-edit" [routerLink]="['/home/profile/edit/']">Edit</button>
+            <button *ngIf="profileView?.displayPrivateProfile" type="button" class="btn btn-edit" [routerLink]="['/home/profile/edit/']">Edit</button>
         </div>
     </div>
 </div>

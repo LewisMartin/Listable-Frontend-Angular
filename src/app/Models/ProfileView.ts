@@ -4,4 +4,5 @@ export class ProfileView
     displayName: string;
     firstName: string;
     lastName: string;
+    displayPrivateProfile: boolean;
 }
