@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CollectionService } from 'src/app/services/collection.service';
 
 import { CollectionView, CollectionViewItem } from 'src/app/Models/Collection';
@@ -20,7 +20,7 @@ export class CollectionViewComponent implements OnInit {
 
   searchTerm: string = '';
 
-  constructor(private _route: ActivatedRoute, private _router: Router, private _collectionService: CollectionService) {
+  constructor(private _route: ActivatedRoute, private _collectionService: CollectionService) {
     _route.params.subscribe(params => {
       this.collectionId = params['id'];
     })

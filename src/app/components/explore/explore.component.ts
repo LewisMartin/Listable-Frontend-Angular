@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CollectionService } from 'src/app/services/collection.service';
 import { CollectionQueryResults, CollectionQueryResult } from 'src/app/Models/CollectionQueryResults';
 import { CollectionQueryFormModel } from 'src/app/Models/CollectionQueryFormModel';
@@ -14,6 +15,7 @@ export class ExploreComponent implements OnInit {
   displaySorted : boolean = false;
   searchTerm: string = '';
   spinnerVisible = false;
+  pg = 0;
 
   constructor(private _collectionService: CollectionService) 
   {
