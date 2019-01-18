@@ -2,7 +2,7 @@
 
 <div class="coll-item-view modal-width" *ngIf="!spinnerVisible">
   <h3>
-    {{ collectionItemView?.collectionName }} - {{ collectionItemView?.name }}
+    <span [routerLink]="['/home/collection', collectionItemView?.collectionId]">{{ collectionItemView?.collectionName }}</span> - {{ collectionItemView?.name }}
   </h3>
   
   <div class="coll-item-detail">
@@ -16,8 +16,8 @@
 
   <div class="footer-buttons">
     <button type="button" class="btn" [routerLink]="['/home/collection/', collectionItemView?.collectionId]">Back</button>
-    <button type="button" class="btn btn-edit" [routerLink]="['/home/collectionitem/edit/', collectionItemView?.collectionId, collectionItemView?.id]">Edit</button>
-    <button type="button" class="btn btn-del" [routerLink]="['/home/collectionitem/delete/', collectionItemView?.collectionId, collectionItemView?.id]">Delete</button>
+    <button *ngIf="collectionItemView?.displayOwnerOptions" type="button" class="btn btn-edit" [routerLink]="['/home/collectionitem/edit/', collectionItemView?.collectionId, collectionItemView?.id]">Edit</button>
+    <button *ngIf="collectionItemView?.displayOwnerOptions" type="button" class="btn btn-del" [routerLink]="['/home/collectionitem/delete/', collectionItemView?.collectionId, collectionItemView?.id]">Delete</button>
   </div>
 </div>
 

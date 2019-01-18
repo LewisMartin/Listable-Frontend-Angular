@@ -11,6 +11,9 @@ export class CollectionView
     privateMode: boolean;
     gridDisplay: boolean;
     collectionViewItems: Array<CollectionViewItem>;
+    displayOwnerOptions: boolean;
+    ownerId: number;
+    ownerDisplayName: string;
 }
 
 export class CollectionViewItem
@@ -30,6 +33,7 @@ export class CollectionItemView
     description: string;
     showImage: boolean;
     imageUrl: string;
+    displayOwnerOptions: boolean;
 }
 
 export class CollectionSettings

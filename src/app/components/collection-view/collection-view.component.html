@@ -2,9 +2,12 @@
 
 <div class="coll-view" *ngIf="!spinnerVisible">
   <h3>
-    {{collectionView?.name}} 
-    <span [routerLink]="['/home/collection/edit/', collectionView?.id]">
-      <fa name="edit" class="coll-title-icon"></fa>
+    {{ collectionView?.name }} 
+    <span *ngIf="collectionView?.displayOwnerOptions" [routerLink]="['/home/collection/edit/', collectionView?.id]">
+      <fa name="edit" class="coll-title-link"></fa>
+    </span>
+    <span *ngIf="!collectionView?.displayOwnerOptions" class="coll-title-link" [routerLink]="['/home/profile', collectionView?.ownerId]">
+      {{ collectionView?.ownerDisplayName }}
     </span>
   </h3>
   <div class="coll-items-cont">
@@ -48,6 +51,6 @@
   </div>
   <div class="footer-buttons">
       <button type="button" class="btn" [routerLink]="['/home/collections/']">Back</button>
-      <button type="button" class="btn btn-new-item" [routerLink]="['/home/collectionitem/create/', collectionView?.id]">New Item</button>
+      <button *ngIf="collectionView?.displayOwnerOptions" type="button" class="btn btn-new-item" [routerLink]="['/home/collectionitem/create/', collectionView?.id]">New Item</button>
   </div>
 </div>
