@@ -22,6 +22,25 @@
     color: #1f967e;
 }
 
+@media (min-width:550px) {
+    .coll-title-usericon {
+        display: none;
+    }
+    
+    .coll-title-username {
+        display: inline-block;
+    }
+}
+@media (max-width:550px) and (min-width:0px) {
+    .coll-title-usericon {
+        display: inline-block;
+    }
+    
+    .coll-title-username {
+        display: none;
+    }
+}
+
 .coll-items-cont {
     width: 100%;
     background-color: #f7f7f7;

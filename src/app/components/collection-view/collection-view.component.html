@@ -6,7 +6,10 @@
     <span *ngIf="collectionView?.displayOwnerOptions" [routerLink]="['/home/collection/edit/', collectionView?.id]">
       <fa name="edit" class="coll-title-link"></fa>
     </span>
-    <span *ngIf="!collectionView?.displayOwnerOptions" class="coll-title-link" [routerLink]="['/home/profile', collectionView?.ownerId]">
+    <span *ngIf="!collectionView?.displayOwnerOptions" [routerLink]="['/home/profile', collectionView?.ownerId]">
+      <fa name="user" class="coll-title-link coll-title-usericon"></fa>
+    </span>
+    <span *ngIf="!collectionView?.displayOwnerOptions" class="coll-title-link coll-title-username" [routerLink]="['/home/profile', collectionView?.ownerId]">
       {{ collectionView?.ownerDisplayName }}
     </span>
   </h3>
